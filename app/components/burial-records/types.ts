@@ -1,4 +1,5 @@
 export type BurialRecord = {
+  slug: string;
   surname: string;
   givenMiddle: string;
   birth: string;

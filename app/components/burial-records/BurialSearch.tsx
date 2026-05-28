@@ -65,11 +65,8 @@ export function BurialSearch({ records }: BurialSearchProps) {
           <BurialEmptyState />
         ) : (
           <div className="space-y-4">
-            {filteredRecords.map((record, index) => (
-              <BurialRecordCard
-                key={`${record.surname}-${record.givenMiddle}-${record.birth}-${record.death}-${index}`}
-                record={record}
-              />
+            {filteredRecords.map((record) => (
+              <BurialRecordCard key={record.slug} record={record} />
             ))}
           </div>
         )}

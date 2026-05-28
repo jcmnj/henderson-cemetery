@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { BurialRecord } from "./types";
 
 type BurialRecordCardProps = {
@@ -14,9 +15,18 @@ const fields: Array<{ key: keyof BurialRecord; label: string }> = [
 ];
 
 export function BurialRecordCard({ record }: BurialRecordCardProps) {
+  const fullName = `${record.givenMiddle} ${record.surname}`.trim();
+
   return (
     <article className="rounded-2xl border border-stone-300 bg-stone-50/90 p-5">
-      <dl className="grid grid-cols-2 gap-x-4 gap-y-3">
+      <Link
+        href={`/burial-records/${record.slug}`}
+        className="font-serif text-xl font-semibold text-stone-900 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
+      >
+        {fullName || "Unnamed Record"}
+      </Link>
+
+      <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
         {fields.map((field) => (
           <div key={field.key}>
             <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-500">

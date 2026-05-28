@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { BurialRecord } from "./types";
 
 type BurialRecordsTableProps = {
@@ -18,13 +19,20 @@ export function BurialRecordsTable({ records }: BurialRecordsTableProps) {
       </div>
 
       <div>
-        {records.map((record, index) => (
+        {records.map((record) => (
           <div
-            key={`${record.surname}-${record.givenMiddle}-${record.birth}-${record.death}-${index}`}
+            key={record.slug}
             className="grid grid-cols-[1.1fr_1.1fr_0.9fr_0.9fr_0.5fr_0.6fr_1.8fr] gap-3 border-b border-stone-200 px-5 py-4 text-sm text-stone-800 last:border-b-0"
           >
             <span>{record.surname || "—"}</span>
-            <span>{record.givenMiddle || "—"}</span>
+            <span>
+              <Link
+                href={`/burial-records/${record.slug}`}
+                className="underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
+              >
+                {record.givenMiddle || "—"}
+              </Link>
+            </span>
             <span>{record.birth || "—"}</span>
             <span>{record.death || "—"}</span>
             <span>{record.plan || "—"}</span>
