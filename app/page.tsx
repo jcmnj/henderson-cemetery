@@ -1,19 +1,25 @@
+import Link from "next/link";
+
 const archiveLinks = [
   {
     title: "Burial Records",
     description: "Search known interments, surnames, dates, plots, and notes.",
+    href: "/burial-records",
   },
   {
     title: "Plot Maps",
     description: "View cemetery plot references and historical map materials.",
+    href: "/plot-maps",
   },
   {
     title: "History",
     description: "Read the documented history of Henderson Cemetery.",
+    href: "/history",
   },
   {
     title: "Documents",
     description: "Access cemetery documents, records, and supporting files.",
+    href: "/documents",
   },
 ];
 
@@ -32,12 +38,12 @@ export default function HomePage() {
           </div>
 
           <nav className="hidden gap-7 text-sm text-stone-700 lg:flex">
-            <a href="#history">History</a>
-            <a href="#records">Burial Records</a>
-            <a href="#maps">Plot Maps</a>
-            <a href="#documents">Documents</a>
-            <a href="#support">Preservation</a>
-            <a href="#contact">Contact</a>
+            <Link href="/history">History</Link>
+            <Link href="/burial-records">Burial Records</Link>
+            <Link href="/plot-maps">Plot Maps</Link>
+            <Link href="/documents">Documents</Link>
+            <Link href="/preservation">Preservation</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </div>
       </header>
@@ -66,19 +72,19 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
-              <a
-                href="#records"
+              <Link
+                href="/burial-records"
                 className="rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 transition hover:bg-stone-700 sm:px-6"
               >
                 Search Burial Records
-              </a>
+              </Link>
 
-              <a
-                href="#support"
+              <Link
+                href="/preservation"
                 className="rounded-full border border-stone-400 px-5 py-3 text-sm font-medium text-stone-800 transition hover:bg-stone-200 sm:px-6"
               >
                 Support Preservation
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -263,8 +269,9 @@ export default function HomePage() {
 
         <div className="mt-8 grid auto-rows-fr gap-5 sm:mt-10 md:grid-cols-2 lg:grid-cols-4">
           {archiveLinks.map((item) => (
-            <div
+            <Link
               key={item.title}
+              href={item.href}
               className="flex h-full flex-col rounded-[1.5rem] border border-stone-300 bg-stone-50 p-6 shadow-sm"
             >
               <h3 className="font-serif text-2xl font-semibold">
@@ -273,7 +280,7 @@ export default function HomePage() {
               <p className="mt-4 text-sm leading-6 text-stone-600">
                 {item.description}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
