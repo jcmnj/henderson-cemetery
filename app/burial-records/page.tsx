@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { BurialSearch } from "@/app/components/burial-records/BurialSearch";
+import type { BurialRecord } from "@/app/components/burial-records/types";
+import burialRecords from "@/app/data/burial-records.json";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -11,6 +14,8 @@ const navLinks = [
 ];
 
 export default function BurialRecordsPage() {
+  const records = burialRecords as BurialRecord[];
+
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <header className="border-b border-stone-300 bg-[#f5f1ea]">
@@ -34,19 +39,11 @@ export default function BurialRecordsPage() {
           Burial Records
         </h1>
         <p className="mt-6 max-w-3xl text-base leading-7 text-stone-700">
-          This page will provide searchable burial records with names, dates,
-          plot references, and associated notes.
+          Search recovered legacy records by surname, given name, dates, plan,
+          plot, and historical comments.
         </p>
 
-        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/80 p-6 sm:p-8">
-          <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-            Placeholder Content
-          </p>
-          <p className="mt-4 text-base leading-7 text-stone-700">
-            Search controls and archival record listings will be connected in a
-            future implementation.
-          </p>
-        </div>
+        <BurialSearch records={records} />
       </section>
     </main>
   );
