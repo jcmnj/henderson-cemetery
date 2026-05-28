@@ -1,65 +1,317 @@
-import Image from "next/image";
+const archiveLinks = [
+  {
+    title: "Burial Records",
+    description: "Search known interments, surnames, dates, plots, and notes.",
+  },
+  {
+    title: "Plot Maps",
+    description: "View cemetery plot references and historical map materials.",
+  },
+  {
+    title: "History",
+    description: "Read the documented history of Henderson Cemetery.",
+  },
+  {
+    title: "Documents",
+    description: "Access cemetery documents, records, and supporting files.",
+  },
+];
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
+      <header className="sticky top-0 z-50 border-b border-stone-300 bg-[#f5f1ea]/90 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 sm:px-6 sm:py-5">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
+              Henderson Cemetery
+            </p>
+            <p className="font-serif text-2xl font-semibold">
+              Preservation Archive
+            </p>
+          </div>
+
+          <nav className="hidden gap-7 text-sm text-stone-700 lg:flex">
+            <a href="#history">History</a>
+            <a href="#records">Burial Records</a>
+            <a href="#maps">Plot Maps</a>
+            <a href="#documents">Documents</a>
+            <a href="#support">Preservation</a>
+            <a href="#contact">Contact</a>
+          </nav>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </header>
+
+      <section className="relative overflow-hidden border-b border-stone-300">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[url('/images/henderson-cemetery.jpg')] bg-cover bg-center opacity-25" />
+
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(245,241,234,0.68),rgba(245,241,234,0.94))]" />
+
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(87,83,78,0.18),transparent_35%)]" />
+        </div>
+        <div className="relative mx-auto grid w-full max-w-6xl gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:py-20">
+          <div>
+            <p className="mb-5 text-sm uppercase tracking-[0.3em] text-stone-600">
+              Harmarville, Pennsylvania
+            </p>
+
+            <h1 className="max-w-3xl font-serif text-[2.35rem] font-semibold leading-[0.95] text-stone-950 sm:text-5xl md:text-6xl lg:text-7xl">
+              Preserving the history of Henderson Cemetery.
+            </h1>
+
+            <p className="mt-6 max-w-xl text-base leading-7 text-stone-700 sm:mt-8 sm:text-lg sm:leading-8">
+              A respectful digital archive for cemetery history, burial records,
+              plot maps, documents, and preservation updates.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
+              <a
+                href="#records"
+                className="rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 transition hover:bg-stone-700 sm:px-6"
+              >
+                Search Burial Records
+              </a>
+
+              <a
+                href="#support"
+                className="rounded-full border border-stone-400 px-5 py-3 text-sm font-medium text-stone-800 transition hover:bg-stone-200 sm:px-6"
+              >
+                Support Preservation
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-stone-300 bg-stone-50/70 p-5 shadow-sm sm:p-6">
+            <p className="text-sm uppercase tracking-[0.25em] text-stone-500">
+              Archive Snapshot
+            </p>
+
+            <div className="mt-8 grid gap-4">
+              <div className="border-b border-stone-200 pb-4">
+                <p className="font-serif text-4xl font-semibold">1800s</p>
+                <p className="mt-1 text-sm text-stone-600">
+                  Early cemetery history and documented burials.
+                </p>
+              </div>
+
+              <div className="border-b border-stone-200 pb-4">
+                <p className="font-serif text-4xl font-semibold">Records</p>
+                <p className="mt-1 text-sm text-stone-600">
+                  Surnames, dates, plot references, and notes.
+                </p>
+              </div>
+
+              <div>
+                <p className="font-serif text-4xl font-semibold">Maps</p>
+                <p className="mt-1 text-sm text-stone-600">
+                  Plot maps and cemetery layout references.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="history"
+        className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-14 sm:px-6 sm:py-16 md:gap-10 lg:grid-cols-2 lg:items-center lg:py-20"
+      >
+        <div className="space-y-6">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
+              Historical Stewardship
+            </p>
+
+            <h2 className="max-w-xl font-serif text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
+              A living record of local families, service, and community care.
+            </h2>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-stone-300 bg-stone-50/80 p-5">
+              <p className="font-serif text-3xl font-semibold">1800s</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                Early cemetery history and documented local burials.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-stone-300 bg-stone-50/80 p-5">
+              <p className="font-serif text-3xl font-semibold">Archive</p>
+              <p className="mt-2 text-sm leading-6 text-stone-600">
+                Burial records, plot maps, documents, and family references.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-5 sm:space-y-6">
+          <div className="overflow-hidden rounded-[2rem] border border-stone-300 bg-stone-200 shadow-sm">
+            <img
+              src="/images/henderson-cemetery-rock.jpg"
+              alt="Henderson Cemetery stone marker"
+              className="h-[280px] w-full object-cover sm:h-[330px] lg:h-[390px]"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
+          <div className="space-y-4 text-base leading-7 text-stone-700">
+            <p>
+              Henderson Cemetery contains generations of local history and family
+              records. The new archive should make that history easier to read,
+              search, preserve, and share.
+            </p>
+
+            <p>
+              The goal is not to erase the original site’s work. The goal is to
+              protect it, organize it, and make the cemetery records more
+              accessible.
+            </p>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section
+        id="records"
+        className="relative overflow-hidden border-y border-stone-300 bg-stone-200/40"
+      >
+        <div className="absolute inset-0 bg-[url('/images/skyview-henderson-cemetery.jpg')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[#f5f1ea]/80" />
+
+        <div className="relative mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
+          <div className="grid gap-8 md:gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+            <div>
+              <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
+                Burial Records
+              </p>
+              <h2 className="font-serif text-3xl font-semibold sm:text-4xl md:text-5xl">
+                A clearer way to search the cemetery archive.
+              </h2>
+            </div>
+
+            <p className="text-base leading-7 text-stone-700 sm:text-lg sm:leading-8">
+              The existing surname records can become a searchable archive with
+              names, dates, plots, notes, and grave photos when available. This
+              makes the cemetery more useful for descendants, researchers, and
+              families.
+            </p>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-[2rem] border border-stone-300 bg-stone-50/95 shadow-xl shadow-stone-400/10 sm:mt-10">
+            <div className="border-b border-stone-200 bg-white/70 p-4 sm:p-5">
+              <input
+                placeholder="Search by surname, given name, plot, or note..."
+                className="w-full rounded-full border border-stone-300 bg-white px-5 py-3 text-sm outline-none transition focus:border-stone-600 focus:ring-2 focus:ring-stone-200"
+              />
+            </div>
+
+            <div className="hidden grid-cols-5 border-b border-stone-200 bg-stone-100 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-stone-500 md:grid">
+              <span>Surname</span>
+              <span>Given Name</span>
+              <span>Birth</span>
+              <span>Death</span>
+              <span>Plot / Notes</span>
+            </div>
+
+            {[
+              [
+                "Armstrong",
+                "Ellen",
+                "Feb 28 1827",
+                "Aug 11 1911",
+                "H/D · Armstrong",
+              ],
+              [
+                "Armstrong",
+                "Fanny",
+                "Jun 29 1857",
+                "Aug 10 1881",
+                "H/D · Armstrong",
+              ],
+              ["Henderson", "Sample", "—", "—", "Historic record placeholder"],
+            ].map((record) => (
+              <div
+                key={record.join("-")}
+                className="grid gap-3 border-b border-stone-200 px-5 py-5 text-sm text-stone-700 last:border-b-0 md:grid-cols-5 md:gap-4"
+              >
+                {record.map((item, index) => (
+                  <div key={`${item}-${index}`}>
+                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
+                      {
+                        ["Surname", "Given Name", "Birth", "Death", "Plot / Notes"][
+                          index
+                        ]
+                      }
+                    </p>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="documents" className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
+        <div className="max-w-2xl">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
+            Archive Access
+          </p>
+          <h2 className="font-serif text-3xl font-semibold sm:text-4xl md:text-5xl">
+            Key resources, organized clearly.
+          </h2>
+        </div>
+
+        <div className="mt-8 grid auto-rows-fr gap-5 sm:mt-10 md:grid-cols-2 lg:grid-cols-4">
+          {archiveLinks.map((item) => (
+            <div
+              key={item.title}
+              className="flex h-full flex-col rounded-[1.5rem] border border-stone-300 bg-stone-50 p-6 shadow-sm"
+            >
+              <h3 className="font-serif text-2xl font-semibold">
+                {item.title}
+              </h3>
+              <p className="mt-4 text-sm leading-6 text-stone-600">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="support" className="border-t border-stone-300 bg-stone-900 text-stone-100">
+        <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1fr_0.84fr] lg:items-end lg:gap-10 lg:py-20">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-400">
+              Preservation Support
+            </p>
+            <h2 className="font-serif text-3xl font-semibold sm:text-4xl md:text-5xl">
+              Help maintain the cemetery and preserve its records.
+            </h2>
+          </div>
+
+          <div className="rounded-[1.5rem] border border-stone-700 bg-stone-800 p-6">
+            <p className="text-sm leading-6 text-stone-300">
+              Donations and volunteer support help maintain the grounds,
+              preserve records, and protect the cemetery’s historical value for
+              future generations.
+            </p>
+
+            <a
+              href="#"
+              className="mt-6 inline-flex rounded-full bg-stone-100 px-5 py-3 text-sm font-medium text-stone-900"
+            >
+              Donation Information
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer id="contact" className="border-t border-stone-800 bg-stone-950 px-5 py-8 text-stone-300 sm:px-6">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 text-sm md:flex-row md:items-center md:justify-between">
+          <p>Henderson Cemetery · Harmarville, Pennsylvania</p>
+          <p>Historical Preservation Archive</p>
+        </div>
+      </footer>
+    </main>
   );
 }
