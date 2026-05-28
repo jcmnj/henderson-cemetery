@@ -1,30 +1,10 @@
-import Link from "next/link";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/history", label: "History" },
-  { href: "/burial-records", label: "Burial Records" },
-  { href: "/plot-maps", label: "Plot Maps" },
-  { href: "/documents", label: "Documents" },
-  { href: "/preservation", label: "Preservation" },
-  { href: "/contact", label: "Contact" },
-];
+import { SiteFooter } from "@/app/components/site/SiteFooter";
+import { SiteHeader } from "@/app/components/site/SiteHeader";
 
 export default function PreservationPage() {
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
-      <header className="border-b border-stone-300 bg-[#f5f1ea]">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4 sm:px-6 sm:py-5">
-          <p className="font-serif text-2xl font-semibold">Preservation Archive</p>
-          <nav className="hidden gap-6 text-sm text-stone-700 lg:flex">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}>
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
         <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
@@ -42,12 +22,14 @@ export default function PreservationPage() {
           <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
             Placeholder Content
           </p>
-          <p className="mt-4 text-base leading-7 text-stone-700">
+          <p className="mt-4 max-w-3xl text-base leading-7 text-stone-700">
             Donation guidance, volunteer details, and project updates will be
             added as preservation content is prepared.
           </p>
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { BurialRecord } from "@/app/components/burial-records/types";
+import { SiteFooter } from "@/app/components/site/SiteFooter";
+import { SiteHeader } from "@/app/components/site/SiteHeader";
 import burialRecords from "@/app/data/burial-records.json";
 
 type BurialRecordPageProps = {
@@ -25,7 +27,9 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
 
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
-      <section className="mx-auto w-full max-w-4xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
+      <SiteHeader />
+
+      <section className="mx-auto w-full max-w-5xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
         <Link
           href="/burial-records"
           className="text-sm uppercase tracking-[0.18em] text-stone-600 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
@@ -33,7 +37,7 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
           Back to Burial Records
         </Link>
 
-        <h1 className="mt-6 font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+        <h1 className="mt-6 max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl">
           {fullName || "Unnamed Record"}
         </h1>
 
@@ -76,23 +80,34 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
 
           <div className="mt-6 border-t border-stone-200 pt-6">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Comments</p>
-            <p className="mt-2 whitespace-pre-wrap text-base leading-7 text-stone-700">{record.comments || "—"}</p>
+            <p className="mt-2 max-w-3xl whitespace-pre-wrap text-base leading-7 text-stone-700">
+              {record.comments || "—"}
+            </p>
           </div>
 
           {record.image ? (
             <div className="mt-6 border-t border-stone-200 pt-6">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Tombstone Image</p>
-              <a href={record.image} target="_blank" rel="noreferrer" className="mt-3 block overflow-hidden rounded-2xl border border-stone-300 bg-stone-100">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">
+                Tombstone Image
+              </p>
+              <a
+                href={record.image}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-3 block overflow-hidden rounded-2xl border border-stone-300 bg-stone-100"
+              >
                 <img
                   src={record.image}
                   alt={`Tombstone for ${fullName || "archival record"}`}
-                  className="h-[260px] w-full object-cover sm:h-[340px]"
+                  className="h-[240px] w-full object-cover sm:h-[320px]"
                 />
               </a>
             </div>
           ) : null}
         </div>
       </section>
+
+      <SiteFooter />
     </main>
   );
 }

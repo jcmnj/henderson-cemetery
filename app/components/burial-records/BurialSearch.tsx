@@ -8,10 +8,11 @@ import type { BurialRecord } from "./types";
 
 type BurialSearchProps = {
   records: BurialRecord[];
+  initialQuery?: string;
 };
 
-export function BurialSearch({ records }: BurialSearchProps) {
-  const [query, setQuery] = useState("");
+export function BurialSearch({ records, initialQuery = "" }: BurialSearchProps) {
+  const [query, setQuery] = useState(initialQuery);
 
   const filteredRecords = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
