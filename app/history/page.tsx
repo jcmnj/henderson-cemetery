@@ -1,6 +1,7 @@
+import Link from "next/link";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
-import Link from "next/link";
+import { PageHeader } from "@/app/components/site/PageHeader";
 
 const timeline = [
   {
@@ -30,29 +31,24 @@ export default function HistoryPage() {
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
-        <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
-          Historical Stewardship
-        </p>
-        <h1 className="max-w-4xl font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-          History
-        </h1>
-        <p className="mt-6 max-w-3xl text-base leading-7 text-stone-700">
-          Henderson Cemetery in Acmetonia (near Harmarville, Pennsylvania)
-          reflects more than two centuries of local family history, community
-          stewardship, and preservation work.
-        </p>
+      <section className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+        <PageHeader
+          eyebrow="Historical Stewardship"
+          title="History"
+          description="Henderson Cemetery in Acmetonia (near Harmarville, Pennsylvania) reflects more than two centuries of local family history, community stewardship, and preservation work."
+        />
+
         <p className="mt-4 max-w-3xl text-base leading-7 text-stone-700">
           The narrative below is compiled from recovered association history and
           archived site materials, with light copy cleanup for clarity while
           preserving factual meaning.
         </p>
 
-        <div className="mt-10 space-y-5">
+        <div className="mt-8 space-y-5 sm:mt-10">
           {timeline.map((item) => (
             <article
               key={`${item.period}-${item.title}`}
-              className="rounded-3xl border border-stone-300 bg-stone-50/90 p-6 sm:p-8"
+              className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7"
             >
               <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
                 {item.period}
@@ -67,7 +63,7 @@ export default function HistoryPage() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-100/80 p-6 sm:p-8">
+        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-100/80 p-5 sm:p-7">
           <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
             Preservation Note
           </p>
@@ -79,7 +75,7 @@ export default function HistoryPage() {
           </p>
           <Link
             href="/burial-records"
-            className="mt-5 inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200"
+            className="mt-5 inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
           >
             Return to Burial Records
           </Link>

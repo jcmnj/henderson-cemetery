@@ -1,25 +1,21 @@
+import Link from "next/link";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
-import Link from "next/link";
+import { PageHeader } from "@/app/components/site/PageHeader";
 
 export default function PlotMapsPage() {
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
-        <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
-          Cemetery Layout
-        </p>
-        <h1 className="max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl">
-          Plot Maps
-        </h1>
-        <p className="mt-6 max-w-3xl text-base leading-7 text-stone-700">
-          This section preserves recovered plot-plan references and layout notes
-          for Henderson Cemetery, with structure for future interactive mapping.
-        </p>
+      <section className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+        <PageHeader
+          eyebrow="Cemetery Layout"
+          title="Plot Maps"
+          description="This section preserves recovered plot-plan references and layout notes for Henderson Cemetery, with structure for future interactive mapping."
+        />
 
-        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-6 sm:p-8">
+        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
           <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
             Recovered Plan References
           </p>
@@ -36,7 +32,7 @@ export default function PlotMapsPage() {
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-6 sm:p-8">
+          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
               Map Reference Area
             </p>
@@ -53,12 +49,12 @@ export default function PlotMapsPage() {
               <img
                 src="/images/skyview-henderson-cemetery.jpg"
                 alt="Aerial view of Henderson Cemetery grounds"
-                className="h-[240px] w-full object-cover sm:h-[300px]"
+                className="h-[220px] w-full object-cover sm:h-[300px]"
               />
             </div>
           </article>
 
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-6">
+          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
               Future Interactive Structure
             </p>
@@ -75,13 +71,13 @@ export default function PlotMapsPage() {
               <div className="mt-3 flex flex-wrap gap-3">
                 <Link
                   href="/burial-records"
-                  className="rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700"
+                  className="rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
                 >
                   Burial Records
                 </Link>
                 <Link
                   href="/history"
-                  className="rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                  className="rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
                 >
                   Cemetery History
                 </Link>
@@ -90,7 +86,7 @@ export default function PlotMapsPage() {
           </article>
         </div>
 
-        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-100/80 p-6 sm:p-8">
+        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-100/80 p-5 sm:p-7">
           <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
             Preservation Note
           </p>

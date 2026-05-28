@@ -29,23 +29,23 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-5xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
+      <section className="mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
         <Link
           href="/burial-records"
-          className="text-sm uppercase tracking-[0.18em] text-stone-600 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
+          className="text-xs uppercase tracking-[0.18em] text-stone-600 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
         >
           Back to Burial Records
         </Link>
 
-        <h1 className="mt-6 max-w-3xl font-serif text-4xl font-semibold leading-tight sm:text-5xl">
+        <h1 className="mt-5 max-w-3xl font-serif text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
           {fullName || "Unnamed Record"}
         </h1>
 
-        <p className="mt-3 text-sm uppercase tracking-[0.18em] text-stone-500">
+        <p className="mt-3 text-xs uppercase tracking-[0.18em] text-stone-500">
           Henderson Cemetery Archive Record
         </p>
 
-        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-6 sm:p-8">
+        <div className="mt-7 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:mt-8 sm:p-8">
           <dl className="grid gap-5 sm:grid-cols-2">
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Surname</dt>
@@ -99,7 +99,7 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
                 <img
                   src={record.image}
                   alt={`Tombstone for ${fullName || "archival record"}`}
-                  className="h-[240px] w-full object-cover sm:h-[320px]"
+                  className="h-[220px] w-full object-cover sm:h-[320px]"
                 />
               </a>
             </div>
