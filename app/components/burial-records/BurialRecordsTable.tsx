@@ -29,7 +29,22 @@ export function BurialRecordsTable({ records }: BurialRecordsTableProps) {
             <span>{record.death || "—"}</span>
             <span>{record.plan || "—"}</span>
             <span>{record.plot || "—"}</span>
-            <span className="leading-6 text-stone-700 whitespace-pre-wrap">{record.comments || "—"}</span>
+            <span className="leading-6 text-stone-700 whitespace-pre-wrap">
+              {record.comments || "—"}
+              {record.image ? (
+                <>
+                  <br />
+                  <a
+                    href={record.image}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                  >
+                    View stone photo
+                  </a>
+                </>
+              ) : null}
+            </span>
           </div>
         ))}
       </div>

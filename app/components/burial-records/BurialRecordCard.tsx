@@ -36,10 +36,14 @@ export function BurialRecordCard({ record }: BurialRecordCardProps) {
 
       {record.image ? (
         <div className="mt-4 border-t border-stone-200 pt-4">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-500">
-            Gravestone Image Path
-          </p>
-          <p className="mt-1 break-all text-xs leading-5 text-stone-600">{record.image}</p>
+          <a
+            href={record.image}
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+          >
+            View stone photo
+          </a>
         </div>
       ) : null}
     </article>
