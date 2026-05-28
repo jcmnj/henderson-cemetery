@@ -1,7 +1,25 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+
+export const metadata: Metadata = {
+  title: "History",
+  description:
+    "Historical narrative and timeline for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania, including association stewardship and archival context.",
+  openGraph: {
+    title: "Henderson Cemetery History",
+    description:
+      "Read the preserved historical timeline for Henderson Cemetery, including early burials, plan development, and community stewardship.",
+    url: "/history",
+  },
+  twitter: {
+    title: "Henderson Cemetery History",
+    description:
+      "Read the preserved historical timeline for Henderson Cemetery, including early burials, plan development, and community stewardship.",
+  },
+};
 
 const timeline = [
   {

@@ -1,6 +1,24 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description:
+    "Henderson Cemetery preservation archive for Harmarville (Acmetonia), Pennsylvania, with burial records, historical context, plot maps, and stewardship resources.",
+  openGraph: {
+    title: "Henderson Cemetery Preservation Archive",
+    description:
+      "Explore burial records, history, documents, and plot-map references for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+    url: "/",
+  },
+  twitter: {
+    title: "Henderson Cemetery Preservation Archive",
+    description:
+      "Explore burial records, history, documents, and plot-map references for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+  },
+};
 
 const archiveLinks = [
   {

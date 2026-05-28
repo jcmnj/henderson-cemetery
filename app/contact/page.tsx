@@ -1,7 +1,25 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { PageHeader } from "@/app/components/site/PageHeader";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Contact and donation source information for the Harmarville Cemetery Association and Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+  openGraph: {
+    title: "Henderson Cemetery Contact",
+    description:
+      "View recovered contact, donation, directions, and association context for Henderson Cemetery preservation inquiries.",
+    url: "/contact",
+  },
+  twitter: {
+    title: "Henderson Cemetery Contact",
+    description:
+      "View recovered contact, donation, directions, and association context for Henderson Cemetery preservation inquiries.",
+  },
+};
 
 export default function ContactPage() {
   return (

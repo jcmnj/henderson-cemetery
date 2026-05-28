@@ -14,9 +14,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Henderson Cemetery",
+  metadataBase: new URL("https://www.hendersoncemetery.com"),
+  title: {
+    default: "Henderson Cemetery Preservation Archive",
+    template: "%s | Henderson Cemetery Archive",
+  },
   description:
-    "Historical preservation archive and burial records for Henderson Cemetery in Harmarville, Pennsylvania.",
+    "Historical preservation archive and burial records for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+  openGraph: {
+    title: "Henderson Cemetery Preservation Archive",
+    description:
+      "Historical preservation archive and burial records for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Henderson Cemetery Archive",
+  },
+  twitter: {
+    card: "summary",
+    title: "Henderson Cemetery Preservation Archive",
+    description:
+      "Historical preservation archive and burial records for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+  },
 };
 
 export default function RootLayout({

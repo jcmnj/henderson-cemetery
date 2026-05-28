@@ -1,7 +1,25 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Documents",
+  description:
+    "Recovered archival document references for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania, including governance, plan records, and preservation notes.",
+  openGraph: {
+    title: "Henderson Cemetery Documents Archive",
+    description:
+      "Review recovered historical document references connected to Henderson Cemetery preservation and genealogy context.",
+    url: "/documents",
+  },
+  twitter: {
+    title: "Henderson Cemetery Documents Archive",
+    description:
+      "Review recovered historical document references connected to Henderson Cemetery preservation and genealogy context.",
+  },
+};
 
 const recoveredCollections = [
   {

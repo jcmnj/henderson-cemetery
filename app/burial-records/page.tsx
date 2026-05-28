@@ -4,6 +4,24 @@ import { PageHeader } from "@/app/components/site/PageHeader";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import burialRecords from "@/app/data/burial-records.json";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Burial Records",
+  description:
+    "Search Henderson Cemetery burial records for surnames, dates, plot references, comments, and tombstone image links in Harmarville (Acmetonia), Pennsylvania.",
+  openGraph: {
+    title: "Henderson Cemetery Burial Records",
+    description:
+      "Search the archival burial roster for genealogy and historical research at Henderson Cemetery.",
+    url: "/burial-records",
+  },
+  twitter: {
+    title: "Henderson Cemetery Burial Records",
+    description:
+      "Search the archival burial roster for genealogy and historical research at Henderson Cemetery.",
+  },
+};
 
 type BurialRecordsPageProps = {
   searchParams?: Promise<{ q?: string }>;

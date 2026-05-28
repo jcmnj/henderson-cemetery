@@ -4,6 +4,7 @@ import type { BurialRecord } from "@/app/components/burial-records/types";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import burialRecords from "@/app/data/burial-records.json";
+import type { Metadata } from "next";
 
 type BurialRecordPageProps = {
   params: Promise<{ slug: string }>;
@@ -13,6 +14,45 @@ const records = burialRecords as BurialRecord[];
 
 export function generateStaticParams() {
   return records.map((record) => ({ slug: record.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: BurialRecordPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const record = records.find((item) => item.slug === slug);
+
+  if (!record) {
+    return {
+      title: "Burial Record",
+      description: "Burial record details from the Henderson Cemetery archive.",
+    };
+  }
+
+  const fullName = `${record.givenMiddle} ${record.surname}`.trim();
+  const dateText = [record.birth, record.death].filter(Boolean).join(" - ");
+  const plotText = [record.plan, record.plot].filter(Boolean).join(" / ");
+  const summaryParts = [
+    fullName || "Unnamed record",
+    dateText || "",
+    plotText ? `Plan/Plot: ${plotText}` : "",
+  ].filter(Boolean);
+  const summary = summaryParts.join(" · ");
+
+  return {
+    title: `${fullName || "Burial Record"}`,
+    description: `${summary}. Henderson Cemetery archival burial record in Harmarville (Acmetonia), Pennsylvania.`,
+    openGraph: {
+      title: `${fullName || "Burial Record"} | Henderson Cemetery Archive`,
+      description: `${summary}.`,
+      url: `/burial-records/${record.slug}`,
+      type: "article",
+    },
+    twitter: {
+      title: `${fullName || "Burial Record"} | Henderson Cemetery Archive`,
+      description: `${summary}.`,
+    },
+  };
 }
 
 export default async function BurialRecordDetailPage({ params }: BurialRecordPageProps) {

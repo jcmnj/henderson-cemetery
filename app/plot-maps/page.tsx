@@ -1,7 +1,25 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Plot Maps",
+  description:
+    "Plot map references and preserved cemetery plan notes for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+  openGraph: {
+    title: "Henderson Cemetery Plot Maps",
+    description:
+      "Explore recovered plan references and map context for Henderson Cemetery sections and burial locations.",
+    url: "/plot-maps",
+  },
+  twitter: {
+    title: "Henderson Cemetery Plot Maps",
+    description:
+      "Explore recovered plan references and map context for Henderson Cemetery sections and burial locations.",
+  },
+};
 
 export default function PlotMapsPage() {
   return (

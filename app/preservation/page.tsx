@@ -1,7 +1,25 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { PageHeader } from "@/app/components/site/PageHeader";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
+
+export const metadata: Metadata = {
+  title: "Preservation",
+  description:
+    "Preservation mission, stewardship context, and support guidance for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+  openGraph: {
+    title: "Henderson Cemetery Preservation",
+    description:
+      "Learn why cemetery maintenance and historical preservation work matter for Henderson Cemetery records and grounds.",
+    url: "/preservation",
+  },
+  twitter: {
+    title: "Henderson Cemetery Preservation",
+    description:
+      "Learn why cemetery maintenance and historical preservation work matter for Henderson Cemetery records and grounds.",
+  },
+};
 
 export default function PreservationPage() {
   return (
