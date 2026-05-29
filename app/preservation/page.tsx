@@ -38,9 +38,9 @@ export default function PreservationPage() {
             Preservation Mission
           </p>
           <p className="mt-3 max-w-4xl text-base leading-7 text-stone-700">
-            Recovered archive materials describe long-standing stewardship by the
+            Association records describe long-standing stewardship by the
             Harmarville Cemetery Association and descendants of those buried at
-            Henderson Cemetery. Historic maintenance work has included brush
+            Henderson Cemetery. Documented maintenance has included brush
             clearing, gravestone repair, mapping, and care of sunken gravesites.
           </p>
           <p className="mt-3 max-w-4xl text-base leading-7 text-stone-700">
@@ -55,7 +55,7 @@ export default function PreservationPage() {
               Why Maintenance Matters
             </p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              Legacy records note that periods of reduced maintenance led to
+              Historical records note that periods of reduced maintenance led to
               overgrowth and loss of visibility in older sections. Ongoing
               stewardship helps preserve stones, plot references, and the
               historical record tied to local families.
@@ -67,13 +67,11 @@ export default function PreservationPage() {
               Donation and Volunteer Support
             </p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              Archived site text consistently states that Henderson Cemetery is
-              privately maintained through donations and volunteer hours rather
-              than public funding.
+              Henderson Cemetery is privately maintained through donations and
+              volunteer hours rather than public funding.
             </p>
             <p className="mt-3 text-sm leading-6 text-stone-600">
-              Current donation and contact details are listed on the Contact
-              page using recovered association information.
+              Donation and contact details are listed on the Contact page.
             </p>
           </article>
         </div>

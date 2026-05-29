@@ -40,8 +40,13 @@ export default async function BurialRecordsPage({ searchParams }: BurialRecordsP
         <PageHeader
           eyebrow="Cemetery Archive"
           title="Burial Records"
-          description="Search recovered legacy records by surname, given name, dates, plan, plot, and historical comments."
+          description="Search burial records by surname, given name, dates, plan, plot, and historical notes."
         />
+
+        <p className="mt-4 max-w-4xl text-sm leading-6 text-stone-600">
+          Records are presented as documented. Some abbreviations and historical
+          notes may reflect the original cemetery records.
+        </p>
 
         <BurialSearch records={records} initialQuery={initialQuery} />
       </section>

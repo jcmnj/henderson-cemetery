@@ -7,39 +7,39 @@ import { PageHeader } from "@/app/components/site/PageHeader";
 export const metadata: Metadata = {
   title: "Documents",
   description:
-    "Recovered archival document references for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania, including governance, plan records, and preservation notes.",
+    "Archival document references for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania, including governance, plan records, and preservation notes.",
   openGraph: {
     title: "Henderson Cemetery Documents Archive",
     description:
-      "Review recovered historical document references connected to Henderson Cemetery preservation and genealogy context.",
+      "Review historical document references connected to Henderson Cemetery preservation and genealogy context.",
     url: "/documents",
   },
   twitter: {
     title: "Henderson Cemetery Documents Archive",
     description:
-      "Review recovered historical document references connected to Henderson Cemetery preservation and genealogy context.",
+      "Review historical document references connected to Henderson Cemetery preservation and genealogy context.",
   },
 };
 
-const recoveredCollections = [
+const documentCollections = [
   {
     title: "Association Formation and Early Minutes",
     summary:
-      "Recovered history references describe the 1909 effort to organize cemetery care, including meeting records tied to the creation of The Harmarville Cemetery Association.",
+      "Historical references describe the 1909 effort to organize cemetery care, including meeting records tied to the creation of The Harmarville Cemetery Association.",
     details:
       "These records provide context for how local descendants and community members formalized long-term stewardship.",
   },
   {
     title: "Survey and Plan Book References",
     summary:
-      "Legacy materials reference surveyed burial lots connected to Oliver P. Henderson's plan, including a county recording noted as November 18, 1884.",
+      "Materials reference surveyed burial lots connected to Oliver P. Henderson's plan, including a county recording noted as November 18, 1884.",
     details:
       "These references support the documented transition to named plans, including what is now described as Plan 1.",
   },
   {
     title: "Plan 2 Land Donation and Deed Era",
     summary:
-      "Recovered narrative notes a 1911 adjoining land gift from Anna Melzena Spring, followed by additional surveyed lots and deed activity from 1925 through 1941.",
+      "Historical notes describe a 1911 adjoining land gift from Anna Melzena Spring, followed by additional surveyed lots and deed activity from 1925 through 1941.",
     details:
       "These entries help trace how the cemetery expanded while preserving continuity of family plots and community maintenance.",
   },
@@ -61,7 +61,7 @@ export default function DocumentsPage() {
         <PageHeader
           eyebrow="Archive Materials"
           title="Documents"
-          description="This section brings together recovered historical references from the legacy Henderson Cemetery site, including governance history, plan records, and long-running preservation notes."
+          description="This section brings together historical references related to governance history, plan records, and long-running preservation notes."
         />
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
@@ -69,15 +69,15 @@ export default function DocumentsPage() {
             Archive Scope
           </p>
           <p className="mt-3 max-w-4xl text-base leading-7 text-stone-700">
-            Original materials include historical narrative pages and references
-            to association records, lot plans, and stewardship documents. Some
-            linked legacy source files are incomplete or no longer present, but
-            preserved references are included here for continuity.
+            Materials include narrative history and references to association
+            records, lot plans, and stewardship documents. Where records vary by
+            date or source, the archive preserves the documented wording for
+            continuity.
           </p>
         </div>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2">
-          {recoveredCollections.map((item) => (
+          {documentCollections.map((item) => (
             <article
               key={item.title}
               className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6"

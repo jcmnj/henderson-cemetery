@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { formatHistoricalDate } from "@/app/lib/formatHistoricalDate";
 import type { BurialRecord } from "./types";
 
 type BurialRecordCardProps = {
@@ -32,14 +33,18 @@ export function BurialRecordCard({ record }: BurialRecordCardProps) {
             <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-500">
               {field.label}
             </dt>
-            <dd className="mt-1 text-sm text-stone-800">{record[field.key] || "—"}</dd>
+            <dd className="mt-1 text-sm text-stone-800">
+              {field.key === "birth" || field.key === "death"
+                ? formatHistoricalDate(record[field.key]) || "—"
+                : record[field.key] || "—"}
+            </dd>
           </div>
         ))}
       </dl>
 
       <div className="mt-4 border-t border-stone-200 pt-4">
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-500">
-          Comments
+          Notes
         </p>
         <p className="mt-1 text-sm leading-6 text-stone-700 whitespace-pre-wrap">{record.comments || "—"}</p>
       </div>

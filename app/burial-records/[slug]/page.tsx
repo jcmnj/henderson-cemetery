@@ -4,6 +4,7 @@ import type { BurialRecord } from "@/app/components/burial-records/types";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import burialRecords from "@/app/data/burial-records.json";
+import { formatHistoricalDate } from "@/app/lib/formatHistoricalDate";
 import type { Metadata } from "next";
 
 type BurialRecordPageProps = {
@@ -30,7 +31,9 @@ export async function generateMetadata({
   }
 
   const fullName = `${record.givenMiddle} ${record.surname}`.trim();
-  const dateText = [record.birth, record.death].filter(Boolean).join(" - ");
+  const dateText = [formatHistoricalDate(record.birth), formatHistoricalDate(record.death)]
+    .filter(Boolean)
+    .join(" - ");
   const plotText = [record.plan, record.plot].filter(Boolean).join(" / ");
   const summaryParts = [
     fullName || "Unnamed record",
@@ -64,6 +67,9 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
   }
 
   const fullName = `${record.givenMiddle} ${record.surname}`.trim();
+  const birth = formatHistoricalDate(record.birth);
+  const death = formatHistoricalDate(record.death);
+  const fieldValue = (value: string) => value.trim() || "Not recorded";
 
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
@@ -89,46 +95,46 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
           <dl className="grid gap-5 sm:grid-cols-2">
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Surname</dt>
-              <dd className="mt-1 text-base text-stone-800">{record.surname || "—"}</dd>
+              <dd className="mt-1 text-base text-stone-800">{fieldValue(record.surname)}</dd>
             </div>
 
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Given / Middle</dt>
-              <dd className="mt-1 text-base text-stone-800">{record.givenMiddle || "—"}</dd>
+              <dd className="mt-1 text-base text-stone-800">{fieldValue(record.givenMiddle)}</dd>
             </div>
 
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Birth</dt>
-              <dd className="mt-1 text-base text-stone-800">{record.birth || "—"}</dd>
+              <dd className="mt-1 text-base text-stone-800">{birth || "Not recorded"}</dd>
             </div>
 
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Death</dt>
-              <dd className="mt-1 text-base text-stone-800">{record.death || "—"}</dd>
+              <dd className="mt-1 text-base text-stone-800">{death || "Not recorded"}</dd>
             </div>
 
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Plan</dt>
-              <dd className="mt-1 text-base text-stone-800">{record.plan || "—"}</dd>
+              <dd className="mt-1 text-base text-stone-800">{fieldValue(record.plan)}</dd>
             </div>
 
             <div>
               <dt className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Plot</dt>
-              <dd className="mt-1 text-base text-stone-800">{record.plot || "—"}</dd>
+              <dd className="mt-1 text-base text-stone-800">{fieldValue(record.plot)}</dd>
             </div>
           </dl>
 
           <div className="mt-6 border-t border-stone-200 pt-6">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Comments</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">Notes</p>
             <p className="mt-2 max-w-3xl whitespace-pre-wrap text-base leading-7 text-stone-700">
-              {record.comments || "—"}
+              {fieldValue(record.comments)}
             </p>
           </div>
 
           {record.image ? (
             <div className="mt-6 border-t border-stone-200 pt-6">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">
-                Tombstone Image
+                Stone Photo
               </p>
               <a
                 href={record.image}
@@ -144,6 +150,11 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
               </a>
             </div>
           ) : null}
+
+          <p className="mt-6 border-t border-stone-200 pt-6 text-sm leading-6 text-stone-600">
+            Records are presented as documented. Some abbreviations and
+            historical notes may reflect the original cemetery records.
+          </p>
         </div>
       </section>
 

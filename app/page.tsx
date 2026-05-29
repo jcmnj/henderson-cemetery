@@ -1,5 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import burialRecords from "@/app/data/burial-records.json";
+import type { BurialRecord } from "@/app/components/burial-records/types";
+import { formatHistoricalDate } from "@/app/lib/formatHistoricalDate";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 
@@ -43,6 +46,18 @@ const archiveLinks = [
   },
 ];
 
+const homepagePreviewRecords = (burialRecords as BurialRecord[])
+  .filter(
+    (record) =>
+      Boolean(record.slug) &&
+      Boolean(record.surname.trim()) &&
+      Boolean(record.givenMiddle.trim()) &&
+      Boolean((record.birth || record.death).trim()) &&
+      Boolean((record.plan || record.plot).trim()) &&
+      Boolean(record.image.trim())
+  )
+  .slice(0, 4);
+
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
@@ -67,8 +82,8 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-6 max-w-xl text-base leading-7 text-stone-700 sm:mt-8 sm:text-lg sm:leading-8">
-              A respectful digital archive for cemetery history, burial records,
-              plot maps, documents, and preservation updates.
+              A respectful archive for cemetery history, burial records, plot
+              maps, documents, and preservation.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
@@ -172,7 +187,7 @@ export default function HomePage() {
               <p className="font-serif text-3xl font-semibold">Archive</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
                 Search burial records, follow plot references, and review
-                preservation notes and documents in one connected archive.
+                documents and stewardship notes in one connected archive.
               </p>
               <Link
                 href="/burial-records"
@@ -195,15 +210,15 @@ export default function HomePage() {
 
           <div className="space-y-4 text-base leading-7 text-stone-700">
             <p>
-              Henderson Cemetery contains generations of local history and family
-              records. The new archive should make that history easier to read,
+              Henderson Cemetery contains generations of local history and
+              family records. This archive makes that history easier to read,
               search, preserve, and share.
             </p>
 
             <p>
-              The goal is not to erase the original site’s work. The goal is to
-              protect it, organize it, and make the cemetery records more
-              accessible.
+              This work protects and organizes existing records so families,
+              researchers, and visitors can find cemetery information more
+              clearly.
             </p>
           </div>
         </div>
@@ -228,10 +243,9 @@ export default function HomePage() {
             </div>
 
             <p className="text-base leading-7 text-stone-700 sm:text-lg sm:leading-8">
-              The existing surname records can become a searchable archive with
-              names, dates, plots, notes, and grave photos when available. This
-              makes the cemetery more useful for descendants, researchers, and
-              families.
+              Search names, dates, plots, and notes, with tombstone photographs
+              where available. The archive is intended to support descendants,
+              researchers, and local families.
             </p>
           </div>
 
@@ -264,39 +278,51 @@ export default function HomePage() {
               <span>Plot / Notes</span>
             </div>
 
-            {[
-              [
-                "Armstrong",
-                "Ellen",
-                "Feb 28 1827",
-                "Aug 11 1911",
-                "H/D · Armstrong",
-              ],
-              [
-                "Armstrong",
-                "Fanny",
-                "Jun 29 1857",
-                "Aug 10 1881",
-                "H/D · Armstrong",
-              ],
-              ["Henderson", "Sample", "—", "—", "Historic record placeholder"],
-            ].map((record) => (
+            {homepagePreviewRecords.map((record) => (
               <div
-                key={record.join("-")}
+                key={record.slug}
                 className="grid gap-3 border-b border-stone-200 px-5 py-5 text-sm text-stone-700 last:border-b-0 md:grid-cols-5 md:gap-4"
               >
-                {record.map((item, index) => (
-                  <div key={`${item}-${index}`}>
-                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
-                      {
-                        ["Surname", "Given Name", "Birth", "Death", "Plot / Notes"][
-                          index
-                        ]
-                      }
-                    </p>
-                    <span>{item}</span>
-                  </div>
-                ))}
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
+                    Surname
+                  </p>
+                  <span>{record.surname}</span>
+                </div>
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
+                    Given Name
+                  </p>
+                  <Link
+                    href={`/burial-records/${record.slug}`}
+                    className="underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
+                  >
+                    {record.givenMiddle}
+                  </Link>
+                </div>
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
+                    Birth
+                  </p>
+                  <span>{formatHistoricalDate(record.birth) || "—"}</span>
+                </div>
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
+                    Death
+                  </p>
+                  <span>{formatHistoricalDate(record.death) || "—"}</span>
+                </div>
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
+                    Plot / Notes
+                  </p>
+                  <span>{`${record.plan || "—"} · ${record.plot || "—"}`}</span>
+                  {record.image ? (
+                    <span className="mt-1 block text-xs text-stone-500">
+                      Tombstone photo available
+                    </span>
+                  ) : null}
+                </div>
               </div>
             ))}
           </div>

@@ -7,17 +7,17 @@ import { SiteHeader } from "@/app/components/site/SiteHeader";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact and donation source information for the Harmarville Cemetery Association and Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
+    "Contact and donation information for the Harmarville Cemetery Association and Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
   openGraph: {
     title: "Henderson Cemetery Contact",
     description:
-      "View recovered contact, donation, directions, and association context for Henderson Cemetery preservation inquiries.",
+      "View contact, donation, directions, and association context for Henderson Cemetery preservation inquiries.",
     url: "/contact",
   },
   twitter: {
     title: "Henderson Cemetery Contact",
     description:
-      "View recovered contact, donation, directions, and association context for Henderson Cemetery preservation inquiries.",
+      "View contact, donation, directions, and association context for Henderson Cemetery preservation inquiries.",
   },
 };
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
         <PageHeader
           eyebrow="Correspondence"
           title="Contact"
-          description="Recovered association materials identify the Harmarville Cemetery Association as the managing body for Henderson Cemetery."
+          description="The Harmarville Cemetery Association is identified as the managing body for Henderson Cemetery."
         />
 
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
@@ -39,7 +39,7 @@ export default function ContactPage() {
               Association Context
             </p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              Historical source information lists Henderson Cemetery at 750 Gulf
+              Historical records list Henderson Cemetery at 750 Gulf
               Lab Road, Harmarville (Acmetonia), Pennsylvania, and states that
               the Harmarville Cemetery Association manages the cemetery.
             </p>
@@ -51,15 +51,15 @@ export default function ContactPage() {
 
           <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-              Contact and Donations (Recovered Source)
+              Contact and Donations
             </p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              Archived contact listing:
+              Contact listing:
               <br />
               Email: <a className="underline decoration-stone-400 underline-offset-4" href="mailto:TamsenErcole@gmail.com">TamsenErcole@gmail.com</a>
             </p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              Archived donation mailing details:
+              Donation mailing details:
               <br />
               Harmarville Cemetery Association
               <br />
@@ -70,10 +70,8 @@ export default function ContactPage() {
               Cabot, PA 16023
             </p>
             <p className="mt-3 text-sm leading-6 text-stone-600">
-              Historical site text says checks were payable to “Harmarville
-              Cemetery Association.” Earlier archive pages also show variant
-              wording and a variant spelling of the treasurer surname; this page
-              follows the contact details shown in the recovered About Us source.
+              Historical records state that checks were payable to
+              &ldquo;Harmarville Cemetery Association.&rdquo;
             </p>
           </article>
         </div>
@@ -84,8 +82,7 @@ export default function ContactPage() {
               Directions and Location Links
             </p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              Recovered map references include GPS context noted in archived
-              materials:
+              GPS coordinates listed in historical records:
               <br />
               Latitude: 40.54480
               <br />
@@ -106,8 +103,8 @@ export default function ContactPage() {
               Facebook and Archive Links
             </p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              Archived pages reference the Henderson Cemetery Facebook page for
-              updates and community visibility.
+              The Henderson Cemetery Facebook page provides additional community
+              updates.
             </p>
             <a
               href="https://www.facebook.com/pages/Henderson-Cemetery/219590198058870"

@@ -52,7 +52,7 @@ export function BurialSearch({ records, initialQuery = "" }: BurialSearchProps) 
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Surname, given name, birth, death, plan, plot, or comments"
+          placeholder="Surname, given name, birth, death, plan, plot, or notes"
           className="mt-2 w-full rounded-full border border-stone-300 bg-white px-5 py-3 text-sm text-stone-800 outline-none transition focus:border-stone-600 focus:ring-2 focus:ring-stone-200"
         />
 

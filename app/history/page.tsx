@@ -7,7 +7,7 @@ import { PageHeader } from "@/app/components/site/PageHeader";
 export const metadata: Metadata = {
   title: "History",
   description:
-    "Historical narrative and timeline for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania, including association stewardship and archival context.",
+    "Historical narrative and timeline for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania, including association stewardship and cemetery development.",
   openGraph: {
     title: "Henderson Cemetery History",
     description:
@@ -57,9 +57,8 @@ export default function HistoryPage() {
         />
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-stone-700">
-          The narrative below is compiled from recovered association history and
-          archived site materials, with light copy cleanup for clarity while
-          preserving factual meaning.
+          The narrative below reflects association history and documented
+          cemetery records preserved over time.
         </p>
 
         <div className="mt-8 space-y-5 sm:mt-10">
@@ -86,10 +85,10 @@ export default function HistoryPage() {
             Preservation Note
           </p>
           <p className="mt-3 max-w-4xl text-base leading-7 text-stone-700">
-            Legacy records indicate that many burials were never fully recorded,
-            and some gravesite details changed across documents over time. The
-            archive preserves these records as historical evidence while
-            continuing to refine accuracy through careful review.
+            Historical records indicate that many burials were never fully
+            recorded, and some gravesite details changed across documents over
+            time. This archive preserves those records while ongoing review
+            continues.
           </p>
           <Link
             href="/burial-records"
