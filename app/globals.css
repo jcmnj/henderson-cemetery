@@ -43,3 +43,77 @@ textarea:focus-visible {
   outline: 2px solid #57534e;
   outline-offset: 2px;
 }
+
+@keyframes archive-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-reveal {
+  animation: archive-reveal 680ms ease-out both;
+}
+
+.card-soft {
+  transition: border-color 220ms ease, box-shadow 220ms ease, transform 220ms ease;
+}
+
+.card-soft:hover {
+  transform: translateY(-2px);
+  border-color: #a8a29e;
+  box-shadow: 0 10px 28px rgba(41, 37, 36, 0.08);
+}
+
+.link-soft {
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.button-soft {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.button-soft:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(41, 37, 36, 0.14);
+}
+
+.image-soft {
+  overflow: hidden;
+}
+
+.image-soft > img {
+  transition: transform 380ms ease;
+}
+
+.image-soft:hover > img {
+  transform: scale(1.025);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .section-reveal {
+    animation: none;
+  }
+
+  .card-soft,
+  .link-soft,
+  .button-soft,
+  .image-soft > img {
+    transition: none;
+  }
+
+  .card-soft:hover,
+  .button-soft:hover,
+  .image-soft:hover > img {
+    transform: none;
+    box-shadow: none;
+  }
+}

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { DonationBanner } from "@/app/components/site/DonationBanner";
 
 export const metadata: Metadata = {
   title: "Documents",
@@ -57,7 +58,7 @@ export default function DocumentsPage() {
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+      <section className="section-reveal mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
         <PageHeader
           eyebrow="Archive Materials"
           title="Documents"
@@ -80,7 +81,7 @@ export default function DocumentsPage() {
           {documentCollections.map((item) => (
             <article
               key={item.title}
-              className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6"
+              className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6"
             >
               <h2 className="font-serif text-2xl font-semibold">{item.title}</h2>
               <p className="mt-3 text-base leading-7 text-stone-700">
@@ -107,19 +108,21 @@ export default function DocumentsPage() {
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               href="/history"
-              className="rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+              className="button-soft rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
             >
               Read Cemetery History
             </Link>
             <Link
               href="/burial-records"
-              className="rounded-full bg-stone-900 px-5 py-2.5 text-sm font-medium text-stone-100 hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+              className="button-soft rounded-full bg-stone-900 px-5 py-2.5 text-sm font-medium text-stone-100 hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
             >
               Search Burial Records
             </Link>
           </div>
         </div>
       </section>
+
+      <DonationBanner />
 
       <SiteFooter />
     </main>

@@ -52,7 +52,7 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={[
-                  "rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
+                  "link-soft rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
                   isActive(link.href)
                     ? "bg-stone-900 text-stone-100"
                     : "text-stone-700 hover:bg-stone-200",
@@ -71,7 +71,7 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
               href={link.href}
               aria-current={isActive(link.href) ? "page" : undefined}
               className={[
-                "shrink-0 rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
+                "link-soft shrink-0 rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
                 isActive(link.href)
                   ? "bg-stone-900 text-stone-100"
                   : "border border-stone-300 bg-stone-50 text-stone-700",

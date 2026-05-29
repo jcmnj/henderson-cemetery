@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { DonationBanner } from "@/app/components/site/DonationBanner";
 
 export const metadata: Metadata = {
   title: "Plot Maps",
@@ -26,17 +27,54 @@ export default function PlotMapsPage() {
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+      <section className="section-reveal mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
         <PageHeader
           eyebrow="Cemetery Layout"
           title="Plot Maps"
-          description="This section preserves plot-plan references and layout notes for Henderson Cemetery."
+          description="Use the cemetery plot map together with the burial records archive to locate documented burial locations and plot references."
         />
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
           <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-            Plan References
+            Cemetery Lot Map
           </p>
+          <p className="mt-3 max-w-4xl text-base leading-7 text-stone-700">
+            The map below is based on cemetery lot plans maintained with the
+            cemetery records.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-6 text-stone-600">
+            Open the full-size map and use your browser or phone zoom controls
+            for the clearest view.
+          </p>
+
+          <div className="mt-5 overflow-auto rounded-2xl border border-stone-300 bg-stone-100">
+            <img
+              src="/images/plot-map/henderson-cemetery-plots-medium.jpg"
+              alt="Henderson Cemetery lot map"
+              className="h-auto max-w-none"
+            />
+          </div>
+          <a
+            href="/images/plot-map/henderson-cemetery-plots-medium.jpg"
+            target="_blank"
+            rel="noreferrer"
+            className="link-soft mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+          >
+            Open full-size plot map
+          </a>
+
+          <div className="mt-5">
+            <Link
+              href="/plot-maps/viewer"
+              className="button-soft inline-flex rounded-full bg-stone-900 px-5 py-2.5 text-sm font-medium text-stone-100 hover:bg-stone-700"
+            >
+              Open Interactive Map Viewer
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
+          <p className="text-sm uppercase tracking-[0.2em] text-stone-500">Map Reference Notes</p>
           <p className="mt-3 max-w-4xl text-base leading-7 text-stone-700">
             Plot-map materials note a sequence of plan tracing and
             revisions: traced from SP on July 22, 1915; retraced in April 1974
@@ -44,25 +82,23 @@ export default function PlotMapsPage() {
             again in June 2012 (J. B. Ebert).
           </p>
           <p className="mt-3 max-w-4xl text-sm leading-6 text-stone-600">
-            These references are preserved as historical map context and linked
-            to the evolving burial roster and section records.
+            Plot references correspond to cemetery records where available.
+            Historical maps may contain older labeling and record conventions.
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-6 text-stone-600">
+            Visitors should use burial records and map references together.
           </p>
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
-            <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-              Map Reference Area
-            </p>
-            <h2 className="mt-2 font-serif text-2xl font-semibold sm:text-3xl">
-              Current Preservation View
-            </h2>
+          <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
+            <p className="text-sm uppercase tracking-[0.2em] text-stone-500">Grounds Context</p>
             <p className="mt-3 text-base leading-7 text-stone-700">
-              This section presents an overview image of the cemetery grounds
-              alongside documented plot-plan notes used for reference.
+              The aerial view provides context for the cemetery grounds while
+              the lot map remains the primary reference for plot numbering.
             </p>
 
-            <div className="mt-5 overflow-hidden rounded-2xl border border-stone-300 bg-stone-100">
+            <div className="image-soft mt-5 overflow-hidden rounded-2xl border border-stone-300 bg-stone-100">
               <img
                 src="/images/skyview-henderson-cemetery.jpg"
                 alt="Aerial view of Henderson Cemetery grounds"
@@ -71,34 +107,27 @@ export default function PlotMapsPage() {
             </div>
           </article>
 
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
-            <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-              Map Reference Notes
-            </p>
+          <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
+            <p className="text-sm uppercase tracking-[0.2em] text-stone-500">Archive Cross-Links</p>
             <ul className="mt-3 space-y-3 text-sm leading-6 text-stone-700">
               <li>Plan-level references for Plan 1, Plan 2, and related sections</li>
               <li>Burial-record and plot associations used in cemetery records</li>
-              <li>Notes for uncertain or conflicting plot references</li>
+              <li>Use burial records and map references together for best results</li>
             </ul>
 
-            <div className="mt-5 border-t border-stone-200 pt-5">
-              <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-                Archive Cross-Links
-              </p>
-              <div className="mt-3 flex flex-wrap gap-3">
-                <Link
-                  href="/burial-records"
-                  className="rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
-                >
-                  Burial Records
-                </Link>
-                <Link
-                  href="/history"
-                  className="rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
-                >
-                  Cemetery History
-                </Link>
-              </div>
+            <div className="mt-5 flex flex-wrap gap-3 border-t border-stone-200 pt-5">
+              <Link
+                href="/burial-records"
+                className="button-soft rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+              >
+                Burial Records
+              </Link>
+              <Link
+                href="/history"
+                className="button-soft rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+              >
+                Cemetery History
+              </Link>
             </div>
           </article>
         </div>
@@ -115,6 +144,8 @@ export default function PlotMapsPage() {
           </p>
         </div>
       </section>
+
+      <DonationBanner />
 
       <SiteFooter />
     </main>

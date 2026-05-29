@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/app/components/site/PageHeader";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
+import { DonationBanner } from "@/app/components/site/DonationBanner";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -26,7 +27,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+      <section className="section-reveal mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
         <PageHeader
           eyebrow="Correspondence"
           title="Contact"
@@ -34,7 +35,7 @@ export default function ContactPage() {
         />
 
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
+          <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
               Association Context
             </p>
@@ -49,7 +50,7 @@ export default function ContactPage() {
             </p>
           </article>
 
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
+          <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
               Contact and Donations
             </p>
@@ -77,7 +78,7 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2">
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
+          <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
               Directions and Location Links
             </p>
@@ -92,13 +93,13 @@ export default function ContactPage() {
               href="https://goo.gl/maps/PLBYS9jWf5YGbgAp6"
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+              className="button-soft mt-4 inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
             >
               Open Directions
             </a>
           </article>
 
-          <article className="rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
+          <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
               Facebook and Archive Links
             </p>
@@ -110,7 +111,7 @@ export default function ContactPage() {
               href="https://www.facebook.com/pages/Henderson-Cemetery/219590198058870"
               target="_blank"
               rel="noreferrer"
-              className="mt-4 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+              className="link-soft mt-4 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
             >
               Visit Facebook Page
             </a>
@@ -118,13 +119,13 @@ export default function ContactPage() {
             <div className="mt-5 border-t border-stone-200 pt-5 flex flex-wrap gap-3">
               <Link
                 href="/history"
-                className="rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                className="button-soft rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200"
               >
                 History
               </Link>
               <Link
                 href="/burial-records"
-                className="rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700"
+                className="button-soft rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700"
               >
                 Burial Records
               </Link>
@@ -132,6 +133,8 @@ export default function ContactPage() {
           </article>
         </div>
       </section>
+
+      <DonationBanner />
 
       <SiteFooter />
     </main>

@@ -1,10 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import burialRecords from "@/app/data/burial-records.json";
-import type { BurialRecord } from "@/app/components/burial-records/types";
-import { formatHistoricalDate } from "@/app/lib/formatHistoricalDate";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
+import { DonationBanner } from "@/app/components/site/DonationBanner";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -46,24 +44,12 @@ const archiveLinks = [
   },
 ];
 
-const homepagePreviewRecords = (burialRecords as BurialRecord[])
-  .filter(
-    (record) =>
-      Boolean(record.slug) &&
-      Boolean(record.surname.trim()) &&
-      Boolean(record.givenMiddle.trim()) &&
-      Boolean((record.birth || record.death).trim()) &&
-      Boolean((record.plan || record.plot).trim()) &&
-      Boolean(record.image.trim())
-  )
-  .slice(0, 4);
-
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader sticky />
 
-      <section className="relative overflow-hidden border-b border-stone-300">
+      <section className="section-reveal relative overflow-hidden border-b border-stone-300">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('/images/henderson-cemetery.jpg')] bg-cover bg-center opacity-25" />
 
@@ -89,21 +75,21 @@ export default function HomePage() {
             <div className="mt-8 flex flex-wrap gap-3 sm:mt-10 sm:gap-4">
               <Link
                 href="/burial-records"
-                className="rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 transition hover:bg-stone-700 sm:px-6"
+                className="button-soft rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 transition hover:bg-stone-700 sm:px-6"
               >
                 Search Burial Records
               </Link>
 
               <Link
                 href="/preservation"
-                className="rounded-full border border-stone-400 px-5 py-3 text-sm font-medium text-stone-800 transition hover:bg-stone-200 sm:px-6"
+                className="button-soft rounded-full border border-stone-400 px-5 py-3 text-sm font-medium text-stone-800 transition hover:bg-stone-200 sm:px-6"
               >
                 Support Preservation
               </Link>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-stone-300 bg-stone-50/70 p-5 shadow-sm sm:p-6">
+          <div className="card-soft rounded-[2rem] border border-stone-300 bg-stone-50/70 p-5 shadow-sm sm:p-6">
             <p className="text-sm uppercase tracking-[0.25em] text-stone-500">
               Archive Snapshot
             </p>
@@ -116,7 +102,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/history"
-                  className="mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                  className="link-soft mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
                 >
                   View Historical Timeline
                 </Link>
@@ -129,7 +115,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/burial-records"
-                  className="mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                  className="link-soft mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
                 >
                   Search Records
                 </Link>
@@ -142,7 +128,7 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/plot-maps"
-                  className="mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                  className="link-soft mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
                 >
                   Open Plot Maps
                 </Link>
@@ -154,7 +140,7 @@ export default function HomePage() {
 
       <section
         id="history"
-        className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-14 sm:px-6 sm:py-16 md:gap-10 lg:grid-cols-2 lg:items-center lg:py-20"
+        className="section-reveal mx-auto grid w-full max-w-6xl gap-8 px-5 py-14 sm:px-6 sm:py-16 md:gap-10 lg:grid-cols-2 lg:items-center lg:py-20"
       >
         <div className="space-y-6">
           <div>
@@ -168,7 +154,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-2xl border border-stone-300 bg-stone-50/80 p-5">
+            <div className="card-soft rounded-2xl border border-stone-300 bg-stone-50/80 p-5">
               <p className="font-serif text-3xl font-semibold">1800s</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
                 Start with the earliest documented burials, family names, and
@@ -177,13 +163,13 @@ export default function HomePage() {
               </p>
               <Link
                 href="/history"
-                className="mt-4 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                className="link-soft mt-4 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
               >
                 Explore History
               </Link>
             </div>
 
-            <div className="rounded-2xl border border-stone-300 bg-stone-50/80 p-5">
+            <div className="card-soft rounded-2xl border border-stone-300 bg-stone-50/80 p-5">
               <p className="font-serif text-3xl font-semibold">Archive</p>
               <p className="mt-2 text-sm leading-6 text-stone-600">
                 Search burial records, follow plot references, and review
@@ -191,7 +177,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/burial-records"
-                className="mt-4 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                className="link-soft mt-4 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
               >
                 Open Records Archive
               </Link>
@@ -200,7 +186,7 @@ export default function HomePage() {
         </div>
 
         <div className="space-y-5 sm:space-y-6">
-          <div className="overflow-hidden rounded-[2rem] border border-stone-300 bg-stone-200 shadow-sm">
+          <div className="image-soft overflow-hidden rounded-[2rem] border border-stone-300 bg-stone-200 shadow-sm">
             <img
               src="/images/henderson-cemetery-rock.jpg"
               alt="Henderson Cemetery stone marker"
@@ -226,7 +212,7 @@ export default function HomePage() {
 
       <section
         id="records"
-        className="relative overflow-hidden border-y border-stone-300 bg-stone-200/40"
+        className="section-reveal relative overflow-hidden border-y border-stone-300 bg-stone-200/40"
       >
         <div className="absolute inset-0 bg-[url('/images/skyview-henderson-cemetery.jpg')] bg-cover bg-center opacity-10" />
         <div className="absolute inset-0 bg-[#f5f1ea]/80" />
@@ -253,8 +239,11 @@ export default function HomePage() {
             <form
               action="/burial-records"
               method="get"
-              className="border-b border-stone-200 bg-white/70 p-4 sm:p-5"
+              className="bg-white/70 p-4 sm:p-6"
             >
+              <p className="mb-3 text-sm text-stone-600">
+                Search by surname, given name, date, plan, plot, or notes.
+              </p>
               <div className="flex flex-col gap-3 sm:flex-row">
                 <input
                   name="q"
@@ -263,73 +252,49 @@ export default function HomePage() {
                 />
                 <button
                   type="submit"
-                  className="rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 transition hover:bg-stone-700 sm:shrink-0"
+                className="button-soft rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 transition hover:bg-stone-700 sm:shrink-0"
                 >
                   Search
                 </button>
               </div>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <Link
+                  href="/burial-records"
+                  className="link-soft text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                >
+                  View all burial records
+                </Link>
+              </div>
             </form>
 
-            <div className="hidden grid-cols-5 border-b border-stone-200 bg-stone-100 px-5 py-3 text-xs font-semibold uppercase tracking-widest text-stone-500 md:grid">
-              <span>Surname</span>
-              <span>Given Name</span>
-              <span>Birth</span>
-              <span>Death</span>
-              <span>Plot / Notes</span>
-            </div>
-
-            {homepagePreviewRecords.map((record) => (
-              <div
-                key={record.slug}
-                className="grid gap-3 border-b border-stone-200 px-5 py-5 text-sm text-stone-700 last:border-b-0 md:grid-cols-5 md:gap-4"
-              >
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
-                    Surname
-                  </p>
-                  <span>{record.surname}</span>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
-                    Given Name
-                  </p>
-                  <Link
-                    href={`/burial-records/${record.slug}`}
-                    className="underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
-                  >
-                    {record.givenMiddle}
-                  </Link>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
-                    Birth
-                  </p>
-                  <span>{formatHistoricalDate(record.birth) || "—"}</span>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
-                    Death
-                  </p>
-                  <span>{formatHistoricalDate(record.death) || "—"}</span>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-widest text-stone-400 md:hidden">
-                    Plot / Notes
-                  </p>
-                  <span>{`${record.plan || "—"} · ${record.plot || "—"}`}</span>
-                  {record.image ? (
-                    <span className="mt-1 block text-xs text-stone-500">
-                      Tombstone photo available
-                    </span>
-                  ) : null}
-                </div>
+            <div className="grid gap-3 border-t border-stone-200 bg-stone-100/70 p-4 sm:grid-cols-3 sm:gap-4 sm:p-5">
+              <div className="rounded-xl border border-stone-200 bg-stone-50 px-4 py-3">
+                <p className="text-xs uppercase tracking-[0.16em] text-stone-500">Burial Records</p>
+                <p className="mt-1 font-serif text-2xl font-semibold text-stone-900">1,223+</p>
               </div>
-            ))}
+              <div className="rounded-xl border border-stone-200 bg-stone-50 px-4 py-3">
+                <p className="text-xs uppercase tracking-[0.16em] text-stone-500">Stone Photographs</p>
+                <p className="mt-1 font-serif text-2xl font-semibold text-stone-900">655</p>
+              </div>
+              <div className="rounded-xl border border-stone-200 bg-stone-50 px-4 py-3">
+                <p className="text-xs uppercase tracking-[0.16em] text-stone-500">Cemetery History</p>
+                <p className="mt-1 font-serif text-2xl font-semibold text-stone-900">200+ Years</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-5 flex justify-end">
+            <Link
+              href="/burial-records"
+              className="link-soft text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+            >
+              Browse full burial list
+            </Link>
           </div>
         </div>
       </section>
 
-      <section id="documents" className="mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
+      <section id="documents" className="section-reveal mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
         <div className="max-w-2xl">
           <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
             Archive Access
@@ -344,7 +309,7 @@ export default function HomePage() {
             <Link
               key={item.title}
               href={item.href}
-              className="flex h-full flex-col rounded-[1.5rem] border border-stone-300 bg-stone-50 p-6 shadow-sm"
+              className="card-soft flex h-full flex-col rounded-[1.5rem] border border-stone-300 bg-stone-50 p-6 shadow-sm"
             >
               <h3 className="font-serif text-2xl font-semibold">
                 {item.title}
@@ -357,7 +322,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="support" className="border-t border-stone-300 bg-stone-200/55 text-stone-900">
+      <section id="support" className="section-reveal border-t border-stone-300 bg-stone-200/55 text-stone-900">
         <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1fr_0.9fr] lg:items-start lg:gap-10 lg:py-20">
           <div className="space-y-6">
             <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-600">
@@ -376,7 +341,7 @@ export default function HomePage() {
 
               <Link
                 href="/contact"
-                className="mt-6 inline-flex rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 hover:bg-stone-700"
+                className="button-soft mt-6 inline-flex rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 hover:bg-stone-700"
               >
                 Donation Information
               </Link>
@@ -412,7 +377,7 @@ export default function HomePage() {
                 />
                 <Link
                   href="/contact"
-                  className="mt-1 inline-flex w-fit rounded-full border border-stone-400 px-5 py-2.5 text-base font-medium text-stone-800 hover:bg-stone-200"
+                  className="button-soft mt-1 inline-flex w-fit rounded-full border border-stone-400 px-5 py-2.5 text-base font-medium text-stone-800 hover:bg-stone-200"
                 >
                   Continue to Contact
                 </Link>
@@ -429,6 +394,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <DonationBanner />
 
       <SiteFooter />
     </main>

@@ -75,10 +75,10 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+      <section className="section-reveal mx-auto w-full max-w-5xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
         <Link
           href="/burial-records"
-          className="text-xs uppercase tracking-[0.18em] text-stone-600 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+          className="link-soft text-xs uppercase tracking-[0.18em] text-stone-600 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
         >
           Back to Burial Records
         </Link>
@@ -140,7 +140,7 @@ export default async function BurialRecordDetailPage({ params }: BurialRecordPag
                 href={record.image}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-3 block overflow-hidden rounded-2xl border border-stone-300 bg-stone-100"
+                className="image-soft mt-3 block overflow-hidden rounded-2xl border border-stone-300 bg-stone-100"
               >
                 <img
                   src={record.image}

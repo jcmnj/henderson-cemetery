@@ -4,20 +4,67 @@ import type { BurialRecord } from "./types";
 
 type BurialRecordsTableProps = {
   records: BurialRecord[];
+  sortKey: "name" | "birth" | "death" | "plan" | "plot" | "photo";
+  sortDirection: "asc" | "desc";
+  onSort: (key: "name" | "birth" | "death" | "plan" | "plot" | "photo") => void;
 };
 
-export function BurialRecordsTable({ records }: BurialRecordsTableProps) {
+export function BurialRecordsTable({
+  records,
+  sortKey,
+  sortDirection,
+  onSort,
+}: BurialRecordsTableProps) {
+  const sortIndicator = (key: BurialRecordsTableProps["sortKey"]) =>
+    sortKey === key ? (sortDirection === "asc" ? "↑" : "↓") : "";
+
   return (
-    <div className="hidden overflow-hidden rounded-3xl border border-stone-300 bg-stone-50/95 md:block">
-      <div className="grid grid-cols-[1.05fr_1.05fr_0.85fr_0.85fr_0.5fr_0.6fr_1.7fr_0.7fr] border-b border-stone-200 bg-stone-100 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-600">
-        <span>Surname</span>
+    <div className="min-w-[980px]">
+      <div className="sticky top-0 z-10 grid grid-cols-[1.05fr_1.05fr_0.85fr_0.85fr_0.5fr_0.6fr_1.7fr_0.7fr] border-b border-stone-200 bg-stone-100 px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone-600">
+        <button
+          type="button"
+          onClick={() => onSort("name")}
+          className="link-soft text-left"
+        >
+          Name {sortIndicator("name")}
+        </button>
         <span>Given / Middle</span>
-        <span>Birth</span>
-        <span>Death</span>
-        <span>Plan</span>
-        <span>Plot</span>
+        <button
+          type="button"
+          onClick={() => onSort("birth")}
+          className="link-soft text-left"
+        >
+          Birth {sortIndicator("birth")}
+        </button>
+        <button
+          type="button"
+          onClick={() => onSort("death")}
+          className="link-soft text-left"
+        >
+          Death {sortIndicator("death")}
+        </button>
+        <button
+          type="button"
+          onClick={() => onSort("plan")}
+          className="link-soft text-left"
+        >
+          Plan {sortIndicator("plan")}
+        </button>
+        <button
+          type="button"
+          onClick={() => onSort("plot")}
+          className="link-soft text-left"
+        >
+          Plot {sortIndicator("plot")}
+        </button>
         <span>Notes</span>
-        <span>Stone Photo</span>
+        <button
+          type="button"
+          onClick={() => onSort("photo")}
+          className="link-soft text-left"
+        >
+          Stone Photo {sortIndicator("photo")}
+        </button>
       </div>
 
       <div>
@@ -30,7 +77,7 @@ export function BurialRecordsTable({ records }: BurialRecordsTableProps) {
             <span>
               <Link
                 href={`/burial-records/${record.slug}`}
-                className="underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
+                className="link-soft underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
               >
                 {record.givenMiddle || "—"}
               </Link>
@@ -46,7 +93,7 @@ export function BurialRecordsTable({ records }: BurialRecordsTableProps) {
                   href={record.image}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-xs font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+                  className="link-soft text-xs font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
                 >
                   View
                 </a>

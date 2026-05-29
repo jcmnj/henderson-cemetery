@@ -17,12 +17,16 @@ const fields: Array<{ key: keyof BurialRecord; label: string }> = [
 
 export function BurialRecordCard({ record }: BurialRecordCardProps) {
   const fullName = `${record.givenMiddle} ${record.surname}`.trim();
+  const noteExcerpt =
+    record.comments.length > 200
+      ? `${record.comments.slice(0, 200).trimEnd()}...`
+      : record.comments;
 
   return (
-    <article className="rounded-2xl border border-stone-300 bg-stone-50/90 p-5">
+    <article className="card-soft rounded-2xl border border-stone-300 bg-stone-50/90 p-5">
       <Link
         href={`/burial-records/${record.slug}`}
-        className="font-serif text-xl font-semibold text-stone-900 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
+        className="link-soft font-serif text-xl font-semibold text-stone-900 underline decoration-stone-300 underline-offset-4 hover:decoration-stone-600"
       >
         {fullName || "Unnamed Record"}
       </Link>
@@ -46,21 +50,29 @@ export function BurialRecordCard({ record }: BurialRecordCardProps) {
         <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-stone-500">
           Notes
         </p>
-        <p className="mt-1 text-sm leading-6 text-stone-700 whitespace-pre-wrap">{record.comments || "—"}</p>
+        <p className="mt-1 text-sm leading-6 text-stone-700 whitespace-pre-wrap">
+          {noteExcerpt || "—"}
+        </p>
       </div>
 
-      {record.image ? (
-        <div className="mt-4 border-t border-stone-200 pt-4">
+      <div className="mt-4 flex flex-wrap gap-4 border-t border-stone-200 pt-4 text-sm">
+        <Link
+          href={`/burial-records/${record.slug}`}
+          className="link-soft font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+        >
+          View full record
+        </Link>
+        {record.image ? (
           <a
             href={record.image}
             target="_blank"
             rel="noreferrer"
-            className="text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
+            className="link-soft font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
           >
             View stone photo
           </a>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </article>
   );
 }

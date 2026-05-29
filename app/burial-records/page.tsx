@@ -3,6 +3,7 @@ import type { BurialRecord } from "@/app/components/burial-records/types";
 import { PageHeader } from "@/app/components/site/PageHeader";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
+import { DonationBanner } from "@/app/components/site/DonationBanner";
 import burialRecords from "@/app/data/burial-records.json";
 import type { Metadata } from "next";
 
@@ -36,20 +37,22 @@ export default async function BurialRecordsPage({ searchParams }: BurialRecordsP
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader />
 
-      <section className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
+      <section className="section-reveal mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-20">
         <PageHeader
           eyebrow="Cemetery Archive"
           title="Burial Records"
           description="Search burial records by surname, given name, dates, plan, plot, and historical notes."
         />
 
-        <p className="mt-4 max-w-4xl text-sm leading-6 text-stone-600">
+        <p className="mt-4 max-w-4xl rounded-xl border border-stone-300 bg-stone-50/80 px-4 py-3 text-sm leading-6 text-stone-600">
           Records are presented as documented. Some abbreviations and historical
           notes may reflect the original cemetery records.
         </p>
 
         <BurialSearch records={records} initialQuery={initialQuery} />
       </section>
+
+      <DonationBanner />
 
       <SiteFooter />
     </main>

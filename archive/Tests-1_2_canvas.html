@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<!-- TemplateBeginEditable name="doctitle" -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+
+<!-- TemplateEndEditable -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Plot Map</title>
+<link type="text/css" rel="stylesheet" href="/assets/dpSyntaxHighlighter.css">
+<link type="text/css" rel="stylesheet" href="YUI/yui_2.9.0/logger/assets/logger.css">
+<link type="text/css" rel="stylesheet" href="YUI/yui_2.9.0/assets/skins/sam/slider.css">
+    <style type="text/css">
+        <!--fieldset { border: 0 none; }-->
+        #log { position: absolute; top: 10px; right: 10px; }
+        span.go    { background: #090; color: #fff; }
+        span.stop  { background: #900; color: #fff; }
+        .yui-skin-sam .yui-region-slider {
+	background-image: url(../images/Harmarville%20Cemetery%20Plot%20Map%20Slider.png);
+	background-repeat: no-repeat;
+        }
+        .markup {
+			overflow: hidden;
+			width: 600px;
+        }
+        .ex {
+            float: left;
+            border: 3px solid #ccc;
+            margin: 1ex;
+            padding: 10px;
+            width: 250px;
+            height: 350px;
+        }
+        .h { height: 150px; }
+    </style>
+<script language="JavaScript" type="text/javascript">
+     function draw(sx, sy, sW, sH, dx, dy, dW, dH){
+		var ctx = document.getElementById("plotMap").getContext("2d");
+		var img = new Image();
+		img.onload = function(){
+		ctx.drawImage(img,sx,sy,sW,sH,dx,dy,dW,dH);
+		};
+		img.src = "http://www.hendersoncemetery.com/images/Henderson Cemetery Plots[medium].jpg";
+	}
+    
+</script>
+</head>
+
+<body class="yui-skin-sam" onLoad="draw(0,0,6500,3516,0,0,800,500)">
+
+	<div id="rail_s5" class="yui-region-slider" tabindex="-1">
+		<div id="t_s5" class="yui-slider-thumb">
+        	<img src="YUI/yui_2.9.0/assets/thumb-n.gif" alt="slider thumb">
+		</div>
+	</div>
+	<canvas id="plotMap" width="800" height="500" >  
+	<h3 align="center">Requirements for viewing Henderson Cemetery's Plot Map are:</h3><br>
+	Internet Explorer 9;<br>
+	Alternatively: Mozilla Firefox 4.0.1 or better <a href="http://www.mozilla.org/en-US/products/download.html?product=firefox-6.0.1&os=win&lang=en-US" title="Firefox 6" target="_blank">[Download Firefox here]</a><br>
+	<a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a>Google Chrome 11.0.696 or better <a href="http://www.google.com/url?sa=t&source=web&cd=2&ved=0CDgQjBAwAQ&url=http%3A%2F%2Fwww.google.com%2Fsupport%2Fchrome%2Fbin%2Fanswer.py%3Fanswer%3D95346&rct=j&q=google%20chrome&ei=MctjTv_6MtGjtgeJmJmSCg&usg=AFQjCNH0Bkqyn3u7pPgBvMgThrMMcWskLg&sig2=FUuevQvPJ4UkyBO0PIFDPg&cad=rja" title="Download Chrome"target="_blank">[Download Chrome here]</a><br>
+    <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a>Opera 11.11 or better <a href="http://www.opera.com/download/get.pl?id=34033&thanks=true&sub=true" title="Download Opera" target="_blank">[Download Opera here]</a><br>
+    <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</a>Apple Safari 5.0.5 or better <a href="http://www.google.com/url?sa=t&source=web&cd=1&ved=0CCQQFjAA&url=http%3A%2F%2Fwww.apple.com%2Fsafari%2Fdownload%2F&rct=j&q=apple%20safari%20download&ei=f81jTsGYLMm_tgfVqPyaCg&usg=AFQjCNHWLTA9xzeCUYjWJ9KECN1AnsRgKA&sig2=-VH9uBPvsi-QWh-JLCDrwg&cad=rja" title="Download Apple Safari" target="_blank">[Download Safari here]</a>
+   <img src="../images/120px-HTML5-logo.svg.png" alt="HTML5 Logo" width="120" height="120" align="right">  
+</canvas>
+<script type="text/javascript" src="YUI/yui_2.9.0/yahoo/yahoo.js"></script>
+	<script type="text/javascript" src="YUI/yui_2.9.0/dom/dom.js"></script>
+	<script type="text/javascript" src="YUI/yui_2.9.0/event/event.js"></script>
+	<script type="text/javascript" src="YUI/yui_2.9.0/dragdrop/dragdrop.js"></script>
+	<script type="text/javascript" src="YUI/yui_2.9.0/slider/slider-debug.js"></script>
+	<script type="text/javascript" src="YUI/yui_2.9.0/animation/animation.js"></script>
+	<script type="text/javascript" src="YUI/yui_2.9.0/logger/logger.js"></script>
+	<script type="text/javascript">
+	YAHOO.util.Event.onDOMReady(function () {
+
+	var log = new YAHOO.widget.LogReader('log',{ newestOnTop: true }),
+    $ = YAHOO.util.Dom.get,
+    Event = YAHOO.util.Event,
+    horiz, vert, region, horiz_g, vert_g, region_g,
+    startCount = 1,
+    endCount = 1;
+	region   = YAHOO.widget.Slider.getSliderRegion('rail_s5','t_s5',0,180,0,90);
+	
+function init(slider,i) {
+    slider.subscribe('slideStart', function () {});
+ 		slider.subscribe("change", function() {
+		var	x = slider.getXValue();
+		var	y = slider.getYValue();
+	 	 draw(x*36,y*39,800,500,0,0,800,500)
+	  });
+    slider.subscribe('slideEnd', function () {});
+
+    Event.on('bg_s'+i,'click', function (e) {
+        if (slider) {
+            slider.backgroundEnabled = this.checked;
+        }
+    });
+
+    Event.on('anim_s'+i,'click', function (e) {
+        if (slider) {
+            slider.animate = this.checked;
+        }
+    });
+
+    Event.on('go_s'+i,'click', (slider.thumb._isRegion ?
+        function () {
+            var v = $('v_s'+i).value.split(/,/);
+            slider.setRegionValue(+v[0],+v[1]);
+        } :
+        function () {
+            slider.setValue(+($('v_s'+i).value));
+        }));
+
+    slider.animate = $('anim_s'+i).checked;
+    slider.backgroundEnabled = $('bg_s'+i).checked;
+}
+init(region,5);
+ }); 
+</script>
+<script type="text/javascript" src="/assets/dpSyntaxHighlighter.js" ></script>
+<script type="text/javascript" src="/assets/dpSyntaxHighlightExample.js"></script>
+<!--[if lte IE 8]>
+<script language="JavaScript">
+(function(){if(!/*@cc_on!@*/0)return;var e = "abbr,article,aside,audio,bb,canvas,datagrid,datalist,details,dialog,eventsource,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(',');for(var i=0;i<e.length;i++){document.createElement(e[i])}})()
+</script>
+<![endif]-->
+</body>
+</html>
