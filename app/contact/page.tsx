@@ -4,6 +4,7 @@ import { PageHeader } from "@/app/components/site/PageHeader";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
+import { ContactForm } from "@/app/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -35,6 +36,8 @@ export default function ContactPage() {
         />
 
         <div className="mt-8 grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
+          <ContactForm />
+
           <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
             <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
               Association Context
