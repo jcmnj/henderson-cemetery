@@ -348,12 +348,12 @@ export default function HomePage() {
                 future generations.
               </p>
 
-              <a
-                href="#"
+              <Link
+                href="/contact"
                 className="mt-6 inline-flex rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 hover:bg-stone-700"
               >
                 Donation Information
-              </a>
+              </Link>
             </div>
           </div>
 
