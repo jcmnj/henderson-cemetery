@@ -43,30 +43,28 @@ export default function PlotMapsPage() {
             cemetery records.
           </p>
           <p className="mt-3 max-w-4xl text-sm leading-6 text-stone-600">
-            Open the full-size map and use your browser or phone zoom controls
-            for the clearest view.
+            For the clearest view, open the full-size map and use pinch-to-zoom.
           </p>
 
-          <div className="mt-5 overflow-auto rounded-2xl border border-stone-300 bg-stone-100">
+          <div className="mt-5 max-h-[72vh] overflow-auto rounded-2xl border border-stone-300 bg-stone-100">
             <img
               src="/images/plot-map/henderson-cemetery-plots-medium.jpg"
               alt="Henderson Cemetery lot map"
               className="h-auto max-w-none"
             />
           </div>
-          <a
-            href="/images/plot-map/henderson-cemetery-plots-medium.jpg"
-            target="_blank"
-            rel="noreferrer"
-            className="link-soft mt-3 inline-flex text-sm font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-900"
-          >
-            Open full-size plot map
-          </a>
-
-          <div className="mt-5">
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a
+              href="/images/plot-map/henderson-cemetery-plots-medium.jpg"
+              target="_blank"
+              rel="noreferrer"
+              className="button-soft inline-flex w-full justify-center rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 hover:bg-stone-700 sm:w-auto"
+            >
+              Open full-size plot map
+            </a>
             <Link
               href="/plot-maps/viewer"
-              className="button-soft inline-flex rounded-full bg-stone-900 px-5 py-2.5 text-sm font-medium text-stone-100 hover:bg-stone-700"
+              className="button-soft inline-flex w-full justify-center rounded-full border border-stone-400 px-5 py-3 text-sm font-medium text-stone-800 hover:bg-stone-200 sm:w-auto"
             >
               Open Interactive Map Viewer
             </Link>
