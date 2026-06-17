@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
 
 export const metadata: Metadata = {
@@ -32,6 +33,11 @@ export default function PlotMapsPage() {
           eyebrow="Cemetery Layout"
           title="Plot Maps"
           description="Use the cemetery plot map together with the burial records archive to locate documented burial locations and plot references."
+        />
+
+        <PageHeroImage
+          src="/images/skyview-henderson-cemetery.jpg"
+          alt="Aerial view of Henderson Cemetery grounds"
         />
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">

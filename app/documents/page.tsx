@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
 
 export const metadata: Metadata = {
@@ -64,6 +65,11 @@ export default function DocumentsPage() {
           eyebrow="Archive Materials"
           title="Documents"
           description="This section brings together historical references related to governance history, plan records, and long-running preservation notes."
+        />
+
+        <PageHeroImage
+          src="/gallery/cemetery-wintersnow-flagsflowers.jpg"
+          alt="Flags and flowers marking graves in Henderson Cemetery"
         />
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">

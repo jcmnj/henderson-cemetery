@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
 
 export const metadata: Metadata = {
@@ -55,6 +56,11 @@ export default function HistoryPage() {
           eyebrow="Historical Stewardship"
           title="History"
           description="Henderson Cemetery in Acmetonia (near Harmarville, Pennsylvania) reflects more than two centuries of local family history, community stewardship, and preservation work."
+        />
+
+        <PageHeroImage
+          src="/gallery/cemetery-fall-portrait.jpg"
+          alt="Autumn view across Henderson Cemetery"
         />
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-stone-700">

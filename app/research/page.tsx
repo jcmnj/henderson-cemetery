@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 
@@ -95,6 +96,11 @@ export default function ResearchPage() {
           eyebrow="Research Center"
           title="Research Center"
           description="Use Henderson Cemetery records, maps, documents, photographs, and outside genealogy resources to begin cemetery, family history, and preservation research."
+        />
+
+        <PageHeroImage
+          src="/gallery/cemetery-winter-road.jpg"
+          alt="Winter road view through Henderson Cemetery"
         />
 
         <section className="mt-7">

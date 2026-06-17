@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
@@ -32,6 +33,11 @@ export default function PreservationPage() {
           eyebrow="Preservation Support"
           title="Preservation"
           description="Henderson Cemetery is maintained through community stewardship, volunteer labor, and private support. The cemetery is not publicly funded."
+        />
+
+        <PageHeroImage
+          src="/gallery/cemetery-wintersnow-flagsflowers2.jpg"
+          alt="Winter preservation view with flags and flowers at Henderson Cemetery"
         />
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">

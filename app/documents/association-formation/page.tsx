@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 
@@ -301,6 +302,11 @@ export default function AssociationFormationPage() {
             description="Transcribed early records documenting lot ownership, cemetery rules, the transfer of management authority, by-laws, founding contributions, and the 1909 charter application for The Harmarville Cemetery Association."
           />
         </div>
+
+        <PageHeroImage
+          src="/gallery/cemetery-summer-monument.jpg"
+          alt="Monument view in Henderson Cemetery"
+        />
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
           <p className="text-sm uppercase tracking-[0.2em] text-stone-500">

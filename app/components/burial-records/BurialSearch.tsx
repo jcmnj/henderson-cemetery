@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { BurialEmptyState } from "./BurialEmptyState";
 import { BurialRecordCard } from "./BurialRecordCard";
 import { BurialRecordsTable } from "./BurialRecordsTable";
@@ -77,6 +77,10 @@ export function BurialSearch({ records, initialQuery = "" }: BurialSearchProps) 
   const activePage = Math.min(currentPage, totalPages);
   const pageStart = totalRecords === 0 ? 0 : (activePage - 1) * pageSize + 1;
   const pageEnd = Math.min(activePage * pageSize, totalRecords);
+  const pageOptions = useMemo(
+    () => Array.from({ length: totalPages }, (_, index) => index + 1),
+    [totalPages]
+  );
   const paginatedRecords = useMemo(
     () => sortedRecords.slice((activePage - 1) * pageSize, activePage * pageSize),
     [activePage, pageSize, sortedRecords]
@@ -94,12 +98,6 @@ export function BurialSearch({ records, initialQuery = "" }: BurialSearchProps) 
     setSortDirection("asc");
     setCurrentPage(1);
   };
-
-  useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(totalPages);
-    }
-  }, [currentPage, totalPages]);
 
   return (
     <div className="mt-8 sm:mt-10">
@@ -219,26 +217,79 @@ export function BurialSearch({ records, initialQuery = "" }: BurialSearchProps) 
         )}
       </div>
 
-      <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl border border-stone-300 bg-stone-50/80 px-4 py-3 text-sm text-stone-700">
-        <button
-          type="button"
-          onClick={() => setCurrentPage((page) => Math.max(1, page - 1))}
-          disabled={activePage <= 1}
-          className="button-soft rounded-full border border-stone-300 px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Previous
-        </button>
-        <p className="text-xs uppercase tracking-[0.14em] text-stone-600">
-          Page {activePage} of {totalPages}
-        </p>
-        <button
-          type="button"
-          onClick={() => setCurrentPage((page) => Math.min(totalPages, page + 1))}
-          disabled={activePage >= totalPages}
-          className="button-soft rounded-full border border-stone-300 px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
-        >
-          Next
-        </button>
+      <div className="mt-4 rounded-2xl border border-stone-300 bg-stone-50/80 px-4 py-3 text-sm text-stone-700">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setCurrentPage(1)}
+              disabled={activePage <= 1}
+              className="button-soft rounded-full border border-stone-300 px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              First
+            </button>
+            <button
+              type="button"
+              onClick={() => setCurrentPage(Math.max(1, activePage - 5))}
+              disabled={activePage <= 1}
+              className="button-soft rounded-full border border-stone-300 px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              -5
+            </button>
+            <button
+              type="button"
+              onClick={() => setCurrentPage(Math.max(1, activePage - 1))}
+              disabled={activePage <= 1}
+              className="button-soft rounded-full border border-stone-300 px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Previous
+            </button>
+          </div>
+
+          <label className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-[0.14em] text-stone-600">
+            <span>Page</span>
+            <select
+              value={activePage}
+              onChange={(event) => setCurrentPage(Number(event.target.value))}
+              className="rounded-xl border border-stone-300 bg-white px-3 py-2 text-sm normal-case tracking-normal text-stone-800"
+              aria-label="Choose results page"
+            >
+              {pageOptions.map((page) => (
+                <option key={page} value={page}>
+                  {page}
+                </option>
+              ))}
+            </select>
+            <span>of {totalPages}</span>
+          </label>
+
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setCurrentPage(Math.min(totalPages, activePage + 1))}
+              disabled={activePage >= totalPages}
+              className="button-soft rounded-full border border-stone-300 px-4 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Next
+            </button>
+            <button
+              type="button"
+              onClick={() => setCurrentPage(Math.min(totalPages, activePage + 5))}
+              disabled={activePage >= totalPages}
+              className="button-soft rounded-full border border-stone-300 px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              +5
+            </button>
+            <button
+              type="button"
+              onClick={() => setCurrentPage(totalPages)}
+              disabled={activePage >= totalPages}
+              className="button-soft rounded-full border border-stone-300 px-3 py-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Last
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

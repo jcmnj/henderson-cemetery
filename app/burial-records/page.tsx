@@ -1,6 +1,7 @@
 import { BurialSearch } from "@/app/components/burial-records/BurialSearch";
 import type { BurialRecord } from "@/app/components/burial-records/types";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
@@ -42,6 +43,11 @@ export default async function BurialRecordsPage({ searchParams }: BurialRecordsP
           eyebrow="Cemetery Archive"
           title="Burial Records"
           description="Search burial records by surname, given name, dates, plan, plot, and historical notes."
+        />
+
+        <PageHeroImage
+          src="/gallery/cemetery-wintersnow-group.jpg"
+          alt="Snow-covered view of Henderson Cemetery"
         />
 
         <p className="mt-4 max-w-4xl rounded-xl border border-stone-300 bg-stone-50/80 px-4 py-3 text-sm leading-6 text-stone-600">

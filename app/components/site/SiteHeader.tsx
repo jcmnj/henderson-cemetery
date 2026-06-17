@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -43,13 +44,25 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
     >
       <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between py-3 sm:py-4">
-          <Link href="/" className="min-w-0">
-            <p className="text-[11px] uppercase tracking-[0.24em] text-stone-500">
-              Henderson Cemetery
-            </p>
-            <p className="truncate font-serif text-xl font-semibold text-stone-900 sm:text-2xl">
-              Preservation Archive
-            </p>
+          <Link href="/" className="flex min-w-0 items-center gap-3">
+            <span className="min-w-0">
+              <span className="block text-[11px] uppercase tracking-[0.24em] text-stone-500">
+                Henderson Cemetery
+              </span>
+              <span className="block truncate font-serif text-xl font-semibold text-stone-900 sm:text-2xl">
+                Preservation Archive
+              </span>
+            </span>
+            <span className="relative hidden h-12 w-12 shrink-0 overflow-hidden rounded-full border border-stone-300 bg-stone-200 shadow-sm sm:block">
+              <Image
+                src="/images/cemeteryheader.png"
+                alt=""
+                fill
+                sizes="48px"
+                className="object-cover"
+                priority
+              />
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">

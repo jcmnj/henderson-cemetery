@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PageHeader } from "@/app/components/site/PageHeader";
+import { PageHeroImage } from "@/app/components/site/PageHeroImage";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { ContactForm } from "@/app/components/contact/ContactForm";
@@ -36,6 +37,14 @@ export default function ContactPage() {
           eyebrow="Correspondence"
           title="Contact"
           description="Contact the Henderson Cemetery Preservation Archive for burial record questions, family history notes, cemetery information, and preservation support."
+        />
+
+        <PageHeroImage
+          src="/images/hendersoncemeterycontactheader.png"
+          alt="Henderson Cemetery contact header"
+          figureClassName="mt-7 bg-[#f5f1ea] sm:mt-8"
+          frameClassName="relative aspect-[1983/793] w-full"
+          imageClassName="object-contain mix-blend-multiply"
         />
 
         <div className="mt-7 grid gap-5 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.85fr)] lg:items-start">
