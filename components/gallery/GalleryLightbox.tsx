@@ -87,8 +87,8 @@ export function GalleryLightbox({ images, selectedIndex, onClose, onSelect }: Ga
 
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-3 border-t border-stone-700 pt-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
-          <p className="truncate font-serif text-xl font-semibold text-stone-50">{selectedImage.filename}</p>
-          <p className="mt-1 text-sm text-stone-400">{selectedImage.relativePath}</p>
+          <p className="font-serif text-xl font-semibold text-stone-50">Archive Photograph</p>
+          <p className="mt-1 text-sm text-stone-400">Henderson Cemetery Preservation Archive</p>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:flex sm:shrink-0">
           <button

@@ -38,10 +38,10 @@ export function GalleryGrid({ images }: GalleryGridProps) {
               />
             </span>
             <span className="block border-t border-stone-200 px-4 py-3">
-              <span className="block truncate text-sm font-medium text-stone-900">{image.filename}</span>
-              {image.category ? (
-                <span className="mt-1 block text-xs uppercase tracking-[0.14em] text-stone-500">{image.category}</span>
-              ) : null}
+              <span className="block text-sm font-medium text-stone-900">Archive Photograph</span>
+              <span className="mt-1 block text-xs uppercase tracking-[0.14em] text-stone-500">
+                {image.category ?? "Henderson Cemetery"}
+              </span>
             </span>
           </button>
         ))}
