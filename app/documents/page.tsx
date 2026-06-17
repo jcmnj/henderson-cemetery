@@ -29,6 +29,7 @@ const documentCollections = [
       "Historical references describe the 1909 effort to organize cemetery care, including meeting records tied to the creation of The Harmarville Cemetery Association.",
     details:
       "These records provide context for how local descendants and community members formalized long-term stewardship.",
+    href: "/documents/association-formation",
   },
   {
     title: "Survey and Plan Book References",
@@ -78,8 +79,36 @@ export default function DocumentsPage() {
         </div>
 
         <div className="mt-8 grid gap-5 md:grid-cols-2">
-          {documentCollections.map((item) => (
-            <article
+          {documentCollections.map((item) => {
+            const card = (
+              <article
+                className="card-soft h-full rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6"
+              >
+                <h2 className="font-serif text-2xl font-semibold">{item.title}</h2>
+                <p className="mt-3 text-base leading-7 text-stone-700">
+                  {item.summary}
+                </p>
+                <p className="mt-3 text-sm leading-6 text-stone-600">
+                  {item.details}
+                </p>
+                {item.href ? (
+                  <p className="mt-5 text-sm font-medium text-stone-800 underline decoration-stone-400 underline-offset-4">
+                    Read archival transcription
+                  </p>
+                ) : null}
+              </article>
+            );
+
+            return item.href ? (
+              <Link
+                key={item.title}
+                href={item.href}
+                className="group block rounded-3xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+              >
+                {card}
+              </Link>
+            ) : (
+              <article
               key={item.title}
               className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6"
             >
@@ -90,8 +119,9 @@ export default function DocumentsPage() {
               <p className="mt-3 text-sm leading-6 text-stone-600">
                 {item.details}
               </p>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-100/80 p-5 sm:p-7">
