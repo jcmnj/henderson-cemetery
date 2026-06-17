@@ -9,6 +9,8 @@ import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { getGalleryImages } from "@/lib/gallery";
 
+const facebookUrl = "https://www.facebook.com/profile.php?id=100057152182753";
+
 export const metadata: Metadata = {
   title: "Photo Archive",
   description:
@@ -25,6 +27,45 @@ export const metadata: Metadata = {
       "A visual record of Henderson Cemetery, its monuments, families, preservation efforts, and historical landscape.",
   },
 };
+
+function FacebookArchiveCallout({ className = "" }: { className?: string }) {
+  return (
+    <section
+      className={[
+        "rounded-[1.5rem] border border-stone-300 bg-stone-100/80 p-5 shadow-sm sm:flex sm:items-center sm:justify-between sm:gap-6 sm:p-6",
+        className,
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
+      <div>
+        <p className="text-sm uppercase tracking-[0.24em] text-stone-500">
+          Community Updates
+        </p>
+        <h2 className="mt-2 font-serif text-2xl font-semibold text-stone-950">
+          Follow Henderson Cemetery on Facebook
+        </h2>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-stone-700">
+          View community notes, cemetery updates, and preservation activity.
+        </p>
+      </div>
+      <a
+        href={facebookUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="button-soft mt-5 inline-flex items-center gap-3 rounded-full border border-stone-400 bg-stone-50 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 sm:mt-0 sm:shrink-0"
+      >
+        <span
+          aria-hidden="true"
+          className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-stone-900 font-serif text-base font-semibold text-stone-100"
+        >
+          f
+        </span>
+        Facebook
+      </a>
+    </section>
+  );
+}
 
 export default async function GalleryPage() {
   const images = await getGalleryImages();
@@ -45,6 +86,8 @@ export default async function GalleryPage() {
           <div className="mt-8 sm:mt-10">
             <GalleryStats photographCount={images.length} />
           </div>
+
+          <FacebookArchiveCallout className="mt-8 sm:mt-10" />
         </div>
       </section>
 
@@ -66,6 +109,8 @@ export default async function GalleryPage() {
             <GalleryGrid images={images} />
           </div>
         </div>
+
+        <FacebookArchiveCallout className="mt-10 sm:mt-12" />
 
         <section className="mt-14 rounded-[2rem] border border-stone-300 bg-stone-50/90 p-6 text-center shadow-sm sm:mt-18 sm:p-10">
           <p className="text-sm uppercase tracking-[0.28em] text-stone-500">Contribute to the Archive</p>

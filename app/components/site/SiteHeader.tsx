@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/plot-maps", label: "Plot Maps" },
   { href: "/documents", label: "Documents" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/research", label: "Research" },
   { href: "/preservation", label: "Preservation" },
   { href: "/contact", label: "Contact" },
   {
@@ -40,18 +41,18 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="mx-auto w-full max-w-6xl px-5 sm:px-6">
-        <div className="flex items-center justify-between py-4 sm:py-5">
+      <div className="mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-3 sm:py-4">
           <Link href="/" className="min-w-0">
-            <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
+            <p className="text-[11px] uppercase tracking-[0.24em] text-stone-500">
               Henderson Cemetery
             </p>
-            <p className="truncate font-serif text-2xl font-semibold text-stone-900">
+            <p className="truncate font-serif text-xl font-semibold text-stone-900 sm:text-2xl">
               Preservation Archive
             </p>
           </Link>
 
-          <nav className="hidden items-center gap-2 md:flex">
+          <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) =>
               link.external ? (
                 <a
@@ -59,7 +60,7 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-soft rounded-full px-3 py-2 text-sm text-stone-700 transition hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+                  className="link-soft rounded-full px-2.5 py-1.5 text-[13px] text-stone-700 transition hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
                 >
                   {link.label}
                 </a>
@@ -69,7 +70,7 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
                   href={link.href}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={[
-                    "link-soft rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
+                    "link-soft rounded-full px-2.5 py-1.5 text-[13px] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
                     isActive(link.href)
                       ? "bg-stone-900 text-stone-100"
                       : "text-stone-700 hover:bg-stone-200",
@@ -82,7 +83,7 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
           </nav>
         </div>
 
-        <nav className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-4 md:hidden">
+        <nav className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-3 lg:hidden">
           {navLinks.map((link) =>
             link.external ? (
               <a

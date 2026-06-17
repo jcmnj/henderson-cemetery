@@ -95,64 +95,49 @@ export default function ContactPage() {
               </p>
             </article>
 
-            <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-6">
+            <article className="rounded-3xl border border-stone-300 bg-stone-100/80 p-5 sm:p-6">
               <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-                Donations
+                Archive Resources
               </p>
               <p className="mt-3 text-sm leading-6 text-stone-700">
-                Harmarville Cemetery Association
-                <br />
-                c/o David Campbell
-                <br />
-                505 Bicker Rd
-                <br />
-                Cabot, PA 16023
+                For cemetery records, plot maps, documents, photographs, and
+                outside genealogy links, start with the Research Center.
               </p>
-              <p className="mt-3 text-sm leading-6 text-stone-600">
-                Archived records state that checks were payable to
-                &ldquo;Harmarville Cemetery Association.&rdquo;
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link
+                  href="/research"
+                  className="button-soft rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700"
+                >
+                  Research Center
+                </Link>
+                <Link
+                  href="/burial-records"
+                  className="button-soft rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                >
+                  Burial Records
+                </Link>
+                <Link
+                  href="/documents"
+                  className="button-soft rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                >
+                  Documents
+                </Link>
+              </div>
+            </article>
+
+            <article className="rounded-3xl border border-amber-700/35 bg-amber-100/70 p-5 sm:p-6">
+              <p className="text-sm uppercase tracking-[0.2em] text-amber-800">
+                Preservation Support
+              </p>
+              <h2 className="mt-3 font-serif text-2xl font-semibold text-stone-950">
+                Volunteer care keeps the cemetery record intact.
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-stone-700">
+                Donations help support mowing, stone care, record preservation,
+                and ongoing maintenance of Henderson Cemetery.
               </p>
             </article>
           </div>
-        </div>
-
-        <div className="mt-5 grid gap-5 lg:grid-cols-2">
-          <article className="rounded-3xl border border-stone-300 bg-stone-100/80 p-5 sm:p-6">
-            <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-              Archive Resources
-            </p>
-            <p className="mt-3 text-sm leading-6 text-stone-700">
-              For record corrections, family context, photographs, or
-              preservation materials, include as much source detail as possible.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Link
-                href="/burial-records"
-                className="button-soft rounded-full bg-stone-900 px-4 py-2 text-sm font-medium text-stone-100 hover:bg-stone-700"
-              >
-                Burial Records
-              </Link>
-              <Link
-                href="/documents"
-                className="button-soft rounded-full border border-stone-400 px-4 py-2 text-sm font-medium text-stone-800 hover:bg-stone-200"
-              >
-                Documents
-              </Link>
-            </div>
-          </article>
-
-          <article className="rounded-3xl border border-amber-700/35 bg-amber-100/70 p-5 sm:p-6">
-            <p className="text-sm uppercase tracking-[0.2em] text-amber-800">
-              Preservation Support
-            </p>
-            <h2 className="mt-3 font-serif text-2xl font-semibold text-stone-950">
-              Volunteer care keeps the cemetery record intact.
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-stone-700">
-              Donations help support mowing, stone care, record preservation,
-              and ongoing maintenance of Henderson Cemetery.
-            </p>
-          </article>
         </div>
       </section>
 

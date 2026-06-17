@@ -56,6 +56,27 @@ export function ContactForm() {
         to the archive contact. Required fields are name, email, and message.
       </p>
 
+      <div className="mt-5 rounded-2xl border border-stone-200 bg-stone-100/75 p-4">
+        <p className="text-sm uppercase tracking-[0.18em] text-stone-500">
+          Donation Mailing Details
+        </p>
+        <div className="mt-3 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-start">
+          <p className="text-sm leading-6 text-stone-700">
+            Harmarville Cemetery Association
+            <br />
+            c/o David Campbell
+            <br />
+            505 Bicker Rd
+            <br />
+            Cabot, PA 16023
+          </p>
+          <p className="text-sm leading-6 text-stone-600 sm:max-w-56">
+            Checks may be made payable to &ldquo;Harmarville Cemetery
+            Association.&rdquo;
+          </p>
+        </div>
+      </div>
+
       <form onSubmit={onSubmit} className="mt-4 grid gap-3">
         <input
           type="text"
