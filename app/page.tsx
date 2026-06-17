@@ -54,6 +54,9 @@ const archiveLinks = [
 
 export default async function HomePage() {
   const galleryImages = await getGalleryImages();
+  const photoHighlightImages = galleryImages.filter(
+    (image) => image.src !== "/gallery/hendersoncemetery1.jpg",
+  );
 
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
@@ -220,7 +223,11 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <GalleryHighlights images={galleryImages} totalCount={galleryImages.length} />
+      <GalleryHighlights
+        images={galleryImages}
+        highlightImages={photoHighlightImages}
+        totalCount={galleryImages.length}
+      />
 
       <section
         id="records"

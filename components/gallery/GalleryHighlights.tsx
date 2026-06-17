@@ -8,13 +8,14 @@ import { GalleryLightbox } from "./GalleryLightbox";
 
 type GalleryHighlightsProps = {
   images: GalleryImage[];
+  highlightImages?: GalleryImage[];
   totalCount: number;
 };
 
-export function GalleryHighlights({ images, totalCount }: GalleryHighlightsProps) {
+export function GalleryHighlights({ images, highlightImages: highlightImageInput, totalCount }: GalleryHighlightsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const highlightImages = images.slice(0, 10);
+  const highlightImages = (highlightImageInput ?? images).slice(0, 10);
 
   if (highlightImages.length === 0) {
     return null;
@@ -72,7 +73,7 @@ export function GalleryHighlights({ images, totalCount }: GalleryHighlightsProps
             <button
               key={image.id}
               type="button"
-              onClick={() => setSelectedIndex(index)}
+              onClick={() => setSelectedIndex(images.findIndex((galleryImage) => galleryImage.id === image.id))}
               className="image-soft group relative aspect-[4/3] w-36 shrink-0 overflow-hidden rounded-2xl border border-stone-300 bg-stone-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2 sm:w-40 lg:w-44"
               aria-label={`Open archive photograph ${index + 1}`}
             >
