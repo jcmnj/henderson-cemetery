@@ -12,6 +12,11 @@ const navLinks = [
   { href: "/gallery", label: "Gallery" },
   { href: "/preservation", label: "Preservation" },
   { href: "/contact", label: "Contact" },
+  {
+    href: "https://www.facebook.com/profile.php?id=100057152182753",
+    label: "Facebook",
+    external: true,
+  },
 ];
 
 type SiteHeaderProps = {
@@ -47,40 +52,64 @@ export function SiteHeader({ sticky = false }: SiteHeaderProps) {
           </Link>
 
           <nav className="hidden items-center gap-2 md:flex">
-            {navLinks.map((link) => (
+            {navLinks.map((link) =>
+              link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-soft rounded-full px-3 py-2 text-sm text-stone-700 transition hover:bg-stone-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                  className={[
+                    "link-soft rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
+                    isActive(link.href)
+                      ? "bg-stone-900 text-stone-100"
+                      : "text-stone-700 hover:bg-stone-200",
+                  ].join(" ")}
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
+          </nav>
+        </div>
+
+        <nav className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-4 md:hidden">
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-soft shrink-0 rounded-full border border-stone-300 bg-stone-50 px-3 py-2 text-sm text-stone-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500"
+              >
+                {link.label}
+              </a>
+            ) : (
               <Link
                 key={link.href}
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={[
-                  "link-soft rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
+                  "link-soft shrink-0 rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
                   isActive(link.href)
                     ? "bg-stone-900 text-stone-100"
-                    : "text-stone-700 hover:bg-stone-200",
+                    : "border border-stone-300 bg-stone-50 text-stone-700",
                 ].join(" ")}
               >
                 {link.label}
               </Link>
-            ))}
-          </nav>
-        </div>
-
-        <nav className="-mx-1 flex gap-2 overflow-x-auto px-1 pb-4 md:hidden">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? "page" : undefined}
-              className={[
-                "link-soft shrink-0 rounded-full px-3 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500",
-                isActive(link.href)
-                  ? "bg-stone-900 text-stone-100"
-                  : "border border-stone-300 bg-stone-50 text-stone-700",
-              ].join(" ")}
-            >
-              {link.label}
-            </Link>
-          ))}
+            ),
+          )}
         </nav>
       </div>
     </header>

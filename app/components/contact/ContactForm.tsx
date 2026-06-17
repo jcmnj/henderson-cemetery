@@ -50,10 +50,10 @@ export function ContactForm() {
 
   return (
     <article className="card-soft rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
-      <p className="text-sm uppercase tracking-[0.2em] text-stone-500">Contact Form</p>
+      <p className="text-sm uppercase tracking-[0.2em] text-stone-500">Archive Inquiry</p>
       <p className="mt-3 text-sm leading-6 text-stone-700">
-        Send a message to the cemetery association. Required fields are name, email, and
-        message.
+        Send a cemetery, preservation, burial record, or family history question
+        to the archive contact. Required fields are name, email, and message.
       </p>
 
       <form onSubmit={onSubmit} className="mt-4 grid gap-3">

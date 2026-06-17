@@ -6,6 +6,10 @@ import { DonationBanner } from "@/app/components/site/DonationBanner";
 import { GalleryHighlights } from "@/components/gallery/GalleryHighlights";
 import { getGalleryImages } from "@/lib/gallery";
 
+const directionsUrl =
+  "https://www.google.com/maps/dir/?api=1&destination=40.54480%2C-79.82320";
+const facebookUrl = "https://www.facebook.com/profile.php?id=100057152182753";
+
 export const metadata: Metadata = {
   title: "Home",
   description:
@@ -417,6 +421,24 @@ export default async function HomePage() {
                 Records and genealogy inquiries are welcome through the contact
                 page.
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <a
+                  href={directionsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button-soft inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                >
+                  Get Directions
+                </a>
+                <a
+                  href={facebookUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button-soft inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                >
+                  Facebook
+                </a>
+              </div>
             </div>
           </div>
         </div>
