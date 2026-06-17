@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
 import { DonationBanner } from "@/app/components/site/DonationBanner";
+import { GalleryHighlights } from "@/components/gallery/GalleryHighlights";
+import { getGalleryImages } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -50,7 +52,9 @@ const archiveLinks = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const galleryImages = await getGalleryImages();
+
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
       <SiteHeader sticky />
@@ -215,6 +219,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <GalleryHighlights images={galleryImages} totalCount={galleryImages.length} />
 
       <section
         id="records"
