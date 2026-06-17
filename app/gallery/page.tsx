@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
 export default async function GalleryPage() {
   const images = await getGalleryImages();
-  const featuredImage = images[0] ?? null;
+  const featuredImage = images[1] ?? images[0] ?? null;
 
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
