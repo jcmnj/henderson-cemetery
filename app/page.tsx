@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteFooter } from "@/app/components/site/SiteFooter";
 import { SiteHeader } from "@/app/components/site/SiteHeader";
-import { DonationBanner } from "@/app/components/site/DonationBanner";
 import { GalleryHighlights } from "@/components/gallery/GalleryHighlights";
 import { getGalleryImages } from "@/lib/gallery";
 
@@ -26,35 +25,6 @@ export const metadata: Metadata = {
       "Explore burial records, history, documents, and plot-map references for Henderson Cemetery in Harmarville (Acmetonia), Pennsylvania.",
   },
 };
-
-const archiveLinks = [
-  {
-    title: "Burial Records",
-    description: "Search known interments, surnames, dates, plots, and notes.",
-    href: "/burial-records",
-  },
-  {
-    title: "Plot Maps",
-    description: "View cemetery plot references and historical map materials.",
-    href: "/plot-maps",
-  },
-  {
-    title: "History",
-    description: "Read the documented history of Henderson Cemetery.",
-    href: "/history",
-  },
-  {
-    title: "Documents",
-    description: "Access cemetery documents, records, and supporting files.",
-    href: "/documents",
-  },
-  {
-    title: "Photo Archive",
-    description:
-      "Browse historical photographs, cemetery views, monuments, and preservation images.",
-    href: "/gallery",
-  },
-];
 
 export default async function HomePage() {
   const galleryImages = await getGalleryImages();
@@ -325,108 +295,83 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section id="documents" className="section-reveal mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
-        <div className="max-w-2xl">
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-500">
-            Archive Access
-          </p>
-          <h2 className="font-serif text-3xl font-semibold sm:text-4xl md:text-5xl">
-            Key resources, organized clearly.
-          </h2>
-        </div>
-
-        <div className="mt-8 grid auto-rows-fr gap-5 sm:mt-10 md:grid-cols-2 lg:grid-cols-5">
-          {archiveLinks.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="card-soft flex h-full flex-col rounded-[1.5rem] border border-stone-300 bg-stone-50 p-6 shadow-sm"
-            >
-              <h3 className="font-serif text-2xl font-semibold">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm leading-6 text-stone-600">
-                {item.description}
+      <section
+        id="support"
+        className="section-reveal border-t border-stone-300 bg-stone-200/55 text-stone-900"
+      >
+        <div className="mx-auto w-full max-w-6xl px-5 py-12 sm:px-6 sm:py-14 lg:py-16">
+          <div className="rounded-[2rem] border border-stone-300 bg-stone-50/90 p-5 shadow-sm sm:p-7 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:gap-8">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-stone-600">
+                Preservation Support
               </p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section id="support" className="section-reveal border-t border-stone-300 bg-stone-200/55 text-stone-900">
-        <div className="mx-auto grid w-full max-w-6xl gap-8 px-5 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1fr_0.9fr] lg:items-start lg:gap-10 lg:py-20">
-          <div className="space-y-6">
-            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-stone-600">
-              Preservation Support
-            </p>
-            <h2 className="font-serif text-3xl font-semibold sm:text-4xl md:text-5xl">
-              Help maintain the cemetery and preserve its records.
-            </h2>
-
-            <div className="rounded-[1.5rem] border border-stone-300 bg-stone-50/90 p-6">
-              <p className="text-base leading-7 text-stone-700">
-                Donations and volunteer support help maintain the grounds,
-                preserve records, and protect the cemetery’s historical value for
-                future generations.
+              <h2 className="mt-4 max-w-xl font-serif text-3xl font-semibold sm:text-4xl md:text-5xl">
+                Help maintain the cemetery and preserve its records.
+              </h2>
+              <p className="mt-5 max-w-xl text-base leading-7 text-stone-700">
+                Donations, record corrections, family notes, and volunteer care
+                help protect Henderson Cemetery as a historical archive and
+                burial ground.
               </p>
 
-              <Link
-                href="/contact"
-                className="button-soft mt-6 inline-flex rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 hover:bg-stone-700"
-              >
-                Donation Information
-              </Link>
-            </div>
-          </div>
-
-          <div>
-            <div className="rounded-[1.5rem] border border-stone-300 bg-stone-50/90 p-6">
-              <p className="text-base uppercase tracking-[0.16em] text-stone-600">
-                Preservation Intake
-              </p>
-              <p className="mt-3 text-base leading-7 text-stone-700">
-                Share a correction, family note, or burial detail for review by
-                the archive team.
-              </p>
-
-              <form className="mt-5 grid gap-3">
-                <input
-                  name="name"
-                  placeholder="Your Name"
-                  className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-base text-stone-900 placeholder:text-stone-500 outline-none focus:border-stone-600"
-                />
-                <input
-                  name="contact"
-                  placeholder="Email or Phone"
-                  className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-base text-stone-900 placeholder:text-stone-500 outline-none focus:border-stone-600"
-                />
-                <textarea
-                  name="note"
-                  rows={4}
-                  placeholder="Record details, family context, or source notes"
-                  className="rounded-xl border border-stone-300 bg-white px-4 py-2.5 text-base text-stone-900 placeholder:text-stone-500 outline-none focus:border-stone-600"
-                />
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Link
                   href="/contact"
-                  className="button-soft mt-1 inline-flex w-fit rounded-full border border-stone-400 px-5 py-2.5 text-base font-medium text-stone-800 hover:bg-stone-200"
+                  className="button-soft inline-flex rounded-full bg-stone-900 px-5 py-3 text-sm font-medium text-stone-100 hover:bg-stone-700"
                 >
-                  Continue to Contact
+                  Donation and Contact Details
                 </Link>
-              </form>
-              <p className="mt-5 border-t border-stone-200 pt-5 text-base leading-7 text-stone-700">
-                Henderson Cemetery Preservation Archive
-                <br />
-                Harmarville, Pennsylvania
-                <br />
-                Records and genealogy inquiries are welcome through the contact
-                page.
+                <Link
+                  href="/research"
+                  className="button-soft inline-flex rounded-full border border-stone-400 px-5 py-3 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                >
+                  Research Center
+                </Link>
+              </div>
+            </div>
+
+            <div className="mt-8 border-t border-stone-200 pt-6 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+              <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
+                Current Needs
               </p>
-              <div className="mt-5 flex flex-wrap gap-3">
+              <div className="mt-4 divide-y divide-stone-200">
+                {[
+                  {
+                    title: "Grounds Care",
+                    body: "Mowing, filling sunken gravesites, and ongoing maintenance.",
+                  },
+                  {
+                    title: "Record Preservation",
+                    body: "Burial details, family context, documents, and photographs.",
+                  },
+                  {
+                    title: "Stone Documentation",
+                    body: "Marker care, stone photographs, and preservation notes.",
+                  },
+                ].map((item) => (
+                  <div key={item.title} className="py-4 first:pt-0 last:pb-0">
+                    <p className="font-serif text-xl font-semibold text-stone-950">
+                      {item.title}
+                    </p>
+                    <p className="mt-1 text-sm leading-6 text-stone-700">
+                      {item.body}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 border-t border-stone-200 pt-5 text-sm">
+                <Link
+                  href="/contact"
+                  className="link-soft font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-950"
+                >
+                  Share a Correction
+                </Link>
                 <a
                   href={directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-soft inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                  className="link-soft font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-950"
                 >
                   Get Directions
                 </a>
@@ -434,7 +379,7 @@ export default async function HomePage() {
                   href={facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="button-soft inline-flex rounded-full border border-stone-400 px-5 py-2.5 text-sm font-medium text-stone-800 hover:bg-stone-200"
+                  className="link-soft font-medium text-stone-700 underline decoration-stone-400 underline-offset-4 hover:text-stone-950"
                 >
                   Facebook
                 </a>
@@ -443,8 +388,6 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-
-      <DonationBanner />
 
       <SiteFooter />
     </main>

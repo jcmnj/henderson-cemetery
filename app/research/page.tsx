@@ -154,42 +154,24 @@ export default function ResearchPage() {
           </div>
         </section>
 
-        <div className="mt-8 grid gap-4 lg:grid-cols-[1fr_0.95fr]">
-          <section className="rounded-3xl border border-stone-300 bg-stone-100/80 p-5 sm:p-6">
-            <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
-              Future Research Collections
-            </p>
-            <h2 className="mt-2 font-serif text-2xl font-semibold text-stone-950">
-              Coming Soon
-            </h2>
-            <ul className="mt-4 grid gap-2 text-sm leading-6 text-stone-700 sm:grid-cols-2">
-              {futureCollections.map((item) => (
-                <li
-                  key={item}
-                  className="rounded-2xl border border-stone-200 bg-stone-50 px-4 py-2.5"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="rounded-3xl border border-amber-700/35 bg-amber-100/70 p-5 sm:p-6">
-            <p className="text-sm uppercase tracking-[0.2em] text-amber-800">
-              Support Preservation
-            </p>
-            <h2 className="mt-2 font-serif text-2xl font-semibold text-stone-950">
-              Donation options are planned.
-            </h2>
-            <p className="mt-3 text-sm leading-6 text-stone-700">
-              The Henderson Cemetery archive and preservation efforts are
-              maintained through volunteer work and community support.
-            </p>
-            <p className="mt-3 text-sm leading-6 text-stone-700">
-              Online donation options will be available in the future.
-            </p>
-          </section>
-        </div>
+        <section className="mt-8 rounded-3xl border border-stone-300 bg-stone-100/80 p-5 sm:p-6">
+          <p className="text-sm uppercase tracking-[0.2em] text-stone-500">
+            Future Research Collections
+          </p>
+          <h2 className="mt-2 font-serif text-2xl font-semibold text-stone-950">
+            Coming Soon
+          </h2>
+          <ul className="mt-4 grid gap-2 text-sm leading-6 text-stone-700 sm:grid-cols-2">
+            {futureCollections.map((item) => (
+              <li
+                key={item}
+                className="rounded-2xl border border-stone-200 bg-stone-50 px-4 py-2.5"
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        </section>
       </section>
 
       <DonationBanner />
