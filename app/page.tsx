@@ -54,9 +54,17 @@ const archiveLinks = [
 
 export default async function HomePage() {
   const galleryImages = await getGalleryImages();
-  const photoHighlightImages = galleryImages.filter(
-    (image) => image.src !== "/gallery/hendersoncemetery1.jpg",
+  const photoHighlightFeaturedImage = galleryImages.find(
+    (image) => image.src === "/gallery/cemetery-wintersnow-group2.jpg",
   );
+  const photoHighlightImages = [
+    ...(photoHighlightFeaturedImage ? [photoHighlightFeaturedImage] : []),
+    ...galleryImages.filter(
+      (image) =>
+        image.src !== "/gallery/hendersoncemetery1.jpg" &&
+        image.src !== photoHighlightFeaturedImage?.src,
+    ),
+  ];
 
   return (
     <main className="min-h-screen bg-[#f5f1ea] text-stone-900">
