@@ -42,6 +42,12 @@ const archiveLinks = [
     description: "Access cemetery documents, records, and supporting files.",
     href: "/documents",
   },
+  {
+    title: "Photo Archive",
+    description:
+      "Browse historical photographs, cemetery views, monuments, and preservation images.",
+    href: "/gallery",
+  },
 ];
 
 export default function HomePage() {
@@ -304,7 +310,7 @@ export default function HomePage() {
           </h2>
         </div>
 
-        <div className="mt-8 grid auto-rows-fr gap-5 sm:mt-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid auto-rows-fr gap-5 sm:mt-10 md:grid-cols-2 lg:grid-cols-5">
           {archiveLinks.map((item) => (
             <Link
               key={item.title}

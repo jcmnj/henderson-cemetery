@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/burial-records", label: "Burial Records" },
   { href: "/plot-maps", label: "Plot Maps" },
   { href: "/documents", label: "Documents" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/preservation", label: "Preservation" },
   { href: "/contact", label: "Contact" },
 ];
