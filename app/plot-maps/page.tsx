@@ -38,6 +38,7 @@ export default function PlotMapsPage() {
         <PageHeroImage
           src="/images/skyview-henderson-cemetery.jpg"
           alt="Aerial view of Henderson Cemetery grounds"
+          imageClassName="object-cover -scale-x-100 -scale-y-100 hover:-scale-x-100 hover:-scale-y-100"
         />
 
         <div className="mt-8 rounded-3xl border border-stone-300 bg-stone-50/90 p-5 sm:p-7">
@@ -106,7 +107,7 @@ export default function PlotMapsPage() {
               <img
                 src="/images/skyview-henderson-cemetery.jpg"
                 alt="Aerial view of Henderson Cemetery grounds"
-                className="h-[220px] w-full object-cover sm:h-[300px]"
+                className="h-[220px] w-full -scale-x-100 -scale-y-100 object-cover hover:-scale-x-100 hover:-scale-y-100 sm:h-[300px]"
               />
             </div>
           </article>
